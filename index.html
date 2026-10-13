@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha de Treino Científica — Hipertrofia & Definição Feminina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --card-border: #1f293d;
+      --card-hover: #162035;
+      --primary: #ec4899;
+      --primary-light: #f472b6;
+      --primary-dark: #be185d;
+      --secondary: #8b5cf6;
+      --accent: #06b6d4;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --radius: 14px;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 90px;
+    }
+
+    /* Top Navigation / App Bar */
+    header {
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0.95) 0%, rgba(9, 13, 22, 0.9) 100%);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 20px;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 15px rgba(236, 72, 153, 0.4);
+    }
+
+    .brand-text h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #ffffff, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-text p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .quick-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn-action {
+      background: #1e293b;
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action:hover {
+      background: #27354f;
+      border-color: var(--primary);
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+
+    /* Weekly Selector Tabs */
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      scrollbar-width: none;
+    }
+    .tab-bar::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      flex: 1;
+      min-width: 140px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
+      position: relative;
+    }
+
+    .tab-btn:hover {
+      background: var(--card-hover);
+      color: var(--text);
+      border-color: #2e3d5b;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(145deg, #1e1b4b 0%, #1f293d 100%);
+      border-color: var(--primary);
+      color: var(--text);
+      box-shadow: 0 0 20px rgba(236, 72, 153, 0.15);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 20%;
+      right: 20%;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px 3px 0 0;
+    }
+
+    .tab-day {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary-light);
+    }
+
+    .tab-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .tab-meta {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    /* Section Banner / Overview */
+    .section-banner {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(17, 24, 39, 0.9) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .banner-info h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .banner-info p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .banner-stats {
+      display: flex;
+      gap: 16px;
+    }
+
+    .stat-pill {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 8px 14px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary-light);
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    /* Workout List */
+    .exercise-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .exercise-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .exercise-card:hover {
+      border-color: #2d3e63;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .exercise-card.completed {
+      background: rgba(16, 185, 129, 0.05);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .exercise-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .exercise-number {
+      width: 30px;
+      height: 30px;
+      background: #1e293b;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--primary-light);
+    }
+
+    .exercise-title-group h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .exercise-muscle-tag {
+      font-size: 0.75rem;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    .badges-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .badge-sets {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .badge-reps {
+      background: rgba(236, 72, 153, 0.15);
+      color: #f472b6;
+      border: 1px solid rgba(236, 72, 153, 0.3);
+    }
+
+    .badge-rir {
+      background: rgba(244, 63, 94, 0.15);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      cursor: help;
+    }
+
+    .badge-rest {
+      background: rgba(148, 163, 184, 0.15);
+      color: #cbd5e1;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .badge-rest:hover {
+      background: rgba(148, 163, 184, 0.3);
+      color: #ffffff;
+    }
+
+    .cue-box {
+      background: rgba(15, 23, 42, 0.7);
+      border-left: 3px solid var(--primary);
+      padding: 8px 12px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      margin-bottom: 14px;
+    }
+
+    /* Sets Tracker Interactive Row */
+    .sets-tracker {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px solid #1e293b;
+    }
+
+    .set-pill {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .set-pill:hover {
+      border-color: var(--primary);
+      color: var(--text);
+    }
+
+    .set-pill.done {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: #10b981;
+      color: #34d399;
+    }
+
+    .btn-timer-trigger {
+      margin-left: auto;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: var(--text-muted);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+
+    .btn-timer-trigger:hover {
+      background: #283754;
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    /* Periodization & Science View */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .info-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .phase-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    /* Floating Rest Timer */
+    .floating-timer {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(17, 24, 39, 0.95);
+      border: 2px solid var(--primary);
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: none;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(236, 72, 153, 0.3);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .timer-display {
+      font-size: 1.6rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      color: #ffffff;
+      min-width: 75px;
+      text-align: center;
+    }
+
+    .timer-controls {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn-timer-ctrl {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: white;
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-timer-ctrl:hover {
+      background: #334155;
+    }
+
+    /* Print Styles */
+    @media print {
+      body { background: #ffffff; color: #000000; padding: 0; }
+      header, .tab-bar, .floating-timer, .btn-timer-trigger { display: none !important; }
+      .exercise-card { page-break-inside: avoid; border: 1px solid #ccc; background: #fff; margin-bottom: 10px; }
+      .cue-box { background: #f5f5f5; border-left-color: #000; color: #333; }
+      .badge { border: 1px solid #aaa; color: #000 !important; background: transparent !important; }
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .card-top { flex-direction: column; align-items: flex-start; }
+      .badges-row { margin-top: 8px; }
+      .sets-tracker { justify-content: space-between; }
+      .btn-timer-trigger { margin-left: 0; width: 100%; justify-content: center; margin-top: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-text">
+          <h1>HIPERTROFIA & DEFINIÇÃO</h1>
+          <p>Prescrição Científica • 4 Dias / Semana (Upper / Lower 2x)</p>
+        </div>
+      </div>
+      <div class="quick-actions">
+        <button class="btn-action" id="btnResetAll" title="Desmarcar todas as séries da semana">🔄 Limpar Séries</button>
+        <button class="btn-action" onclick="window.print()">🖨️ Imprimir</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Navigation Tabs -->
+    <nav class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('treino-a')">
+        <span class="tab-day">Segunda</span>
+        <span class="tab-title">Treino A</span>
+        <span class="tab-meta">Glúteo & Coxa (18s)</span>
+      </button>
+
+      <button class="tab-btn" onclick="switchTab('treino-b')">
+        <span class="tab-day">Terça</span>
+        <span class="tab-title">Treino B</span>
+        <span class="tab-meta">Superiores & Ombros (17s)</span>
+      </button>
+
+      <button class="tab-btn" onclick="switchTab('treino-c')">
+        <span class="tab-day">Quinta</span>
+        <span class="tab-title">Treino C</span>
+        <span class="tab-meta">Glúteo & Posterior (18s)</span>
+      </button>
+
+      <button class="tab-btn" onclick="switchTab('treino-d')">
+        <span class="tab-day">Sexta</span>
+        <span class="tab-title">Treino D</span>
+        <span class="tab-meta">Costas, Ombros & Core (18s)</span>
+      </button>
+
+      <button class="tab-btn" onclick="switchTab('periodizacao')">
+        <span class="tab-day">12 Semanas</span>
+        <span class="tab-title">Periodização</span>
+        <span class="tab-meta">Cargas & Deload</span>
+      </button>
+
+      <button class="tab-btn" onclick="switchTab('ciencia')">
+        <span class="tab-day">Resumo</span>
+        <span class="tab-title">Regras de Ouro</span>
+        <span class="tab-meta">Artigos & Diretrizes</span>
+      </button>
+    </nav>
+
+    <!-- CONTENT: TREINO A -->
+    <section id="treino-a" class="tab-content">
+      <div class="section-banner">
+        <div class="banner-info">
+          <h2>🏋️‍♀️ TREINO A — Glúteo Máximo & Quadríceps</h2>
+          <p>Foco em amplitude profunda de agachamento e contração no ponto de pico da pelve.</p>
+        </div>
+        <div class="banner-stats">
+          <div class="stat-pill">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Exercícios</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-value">18</div>
+            <div class="stat-label">Séries Totais</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-value">~55 min</div>
+            <div class="stat-label">Duração</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-list">
+        <!-- Ex 1 -->
+        <div class="exercise-card" data-ex-id="a1">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">1</div>
+              <div class="exercise-title-group">
+                <h3>Agachamento Livre com Barra <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Back Squat)</span></h3>
+                <span class="exercise-muscle-tag">Glúteo Máximo, Quadríceps & Adutores</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">8 a 10 Reps</span>
+              <span class="badge badge-rir" title="Repetições em Reserva: pare com 2 reps antes de falhar">RIR 2</span>
+              <span class="badge badge-rest" onclick="startTimer(120)">⏱️ 2 min descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Desça até que a linha do quadril ultrapasse a linha superior dos joelhos. Pés totalmente apoiados; empurre o chão com os calcanhares.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
+          </div>
+        </div>
+
+        <!-- Ex 2 -->
+        <div class="exercise-card" data-ex-id="a2">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">2</div>
+              <div class="exercise-title-group">
+                <h3>Elevação Pélvica com Barra <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Hip Thrust)</span></h3>
+                <span class="exercise-muscle-tag">Glúteo Máximo (Encurtamento Total)</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">10 a 12 Reps</span>
+              <span class="badge badge-rir" title="Pare com 1 a 2 reps antes da falha">RIR 1-2</span>
+              <span class="badge badge-rest" onclick="startTimer(120)">⏱️ 2 min descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Pause de 1 a 2 segundos no topo contraindo o glúteo ao máximo. Mantenha o queixo apontado para o peito e costelas abaixadas.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
+          </div>
+        </div>
+
+        <!-- Ex 3 -->
+        <div class="exercise-card" data-ex-id="a3">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">3</div>
+              <div class="exercise-title-group">
+                <h3>Subida no Banco com Halteres <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Step-Up)</span></h3>
+                <span class="exercise-muscle-tag">Glúteo Máximo Unilateral (>60% MVIC)</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">3 Séries</span>
+              <span class="badge badge-reps">10 a 12 cada perna</span>
+              <span class="badge badge-rir">RIR 2</span>
+              <span class="badge badge-rest" onclick="startTimer(90)">⏱️ 90s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Incline o tronco ligeiramente à frente. Não dê impulso com o pé de trás; faça a força exclusivamente com a perna de cima do banco.
+          </div>
+          <div class="sets-tracker" data-sets="3">
+            <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
+          </div>
+        </div>
+
+        <!-- Ex 4 -->
+        <div class="exercise-card" data-ex-id="a4">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">4</div>
+              <div class="exercise-title-group">
+                <h3>Cadeira Extensora</h3>
+                <span class="exercise-muscle-tag">Quadríceps & Reto Femoral</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">3 Séries</span>
+              <span class="badge badge-reps">12 a 15 Reps</span>
+              <span class="badge badge-rir">RIR 1</span>
+              <span class="badge badge-rest" onclick="startTimer(60)">⏱️ 60s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Segure 1 segundo no topo da extensão e controle a descida do peso em 3 segundos sem bater as placas.
+          </div>
+          <div class="sets-tracker" data-sets="3">
+            <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
+          </div>
+        </div>
+
+        <!-- Ex 5 -->
+        <div class="exercise-card" data-ex-id="a5">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">5</div>
+              <div class="exercise-title-group">
+                <h3>Panturrilha em Pé <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Smith ou Máquina)</span></h3>
+                <span class="exercise-muscle-tag">Gastrocnêmio & Sóleo</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">12 a 15 Reps</span>
+              <span class="badge badge-rir">RIR 1</span>
+              <span class="badge badge-rest" onclick="startTimer(60)">⏱️ 60s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Desça o calcanhar ao limite máximo sentindo alongar a panturrilha; suba completamente e aperte no topo.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT: TREINO B -->
+    <section id="treino-b" class="tab-content" style="display: none;">
+      <div class="section-banner">
+        <div class="banner-info">
+          <h2>💪 TREINO B — Superiores, Dorsais & Ombros</h2>
+          <p>Foco em alargamento sutil das dorsais (afinando a linha de cintura) e deltoides equilibrados.</p>
+        </div>
+        <div class="banner-stats">
+          <div class="stat-pill">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Exercícios</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-value">17</div>
+            <div class="stat-label">Séries Totais</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-value">~50 min</div>
+            <div class="stat-label">Duração</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-list">
+        <!-- Ex 1 -->
+        <div class="exercise-card" data-ex-id="b1">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">1</div>
+              <div class="exercise-title-group">
+                <h3>Puxada Frontal na Polia <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Lat Pulldown)</span></h3>
+                <span class="exercise-muscle-tag">Grande Dorsal (Largura das Costas)</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">8 a 10 Reps</span>
+              <span class="badge badge-rir">RIR 2</span>
+              <span class="badge badge-rest" onclick="startTimer(90)">⏱️ 90s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Puxe a barra em direção à parte superior do peito. Mantenha o peito estufado e deprima as escápulas para baixo ao puxar.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
+          </div>
+        </div>
+
+        <!-- Ex 2 -->
+        <div class="exercise-card" data-ex-id="b2">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">2</div>
+              <div class="exercise-title-group">
+                <h3>Supino Inclinado com Halteres <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Banco a 30°)</span></h3>
+                <span class="exercise-muscle-tag">Peitoral Superior & Deltoide Anterior</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">3 Séries</span>
+              <span class="badge badge-reps">10 a 12 Reps</span>
+              <span class="badge badge-rir">RIR 2</span>
+              <span class="badge badge-rest" onclick="startTimer(90)">⏱️ 90s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Banco em inclinação suave (30°). Desça com os cotovelos a cerca de 45° em relação ao corpo, sem abrir demais os ombros.
+          </div>
+          <div class="sets-tracker" data-sets="3">
+            <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
+          </div>
+        </div>
+
+        <!-- Ex 3 -->
+        <div class="exercise-card" data-ex-id="b3">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">3</div>
+              <div class="exercise-title-group">
+                <h3>Remada Baixa na Polia <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Pegada Neutra / Triângulo)</span></h3>
+                <span class="exercise-muscle-tag">Dorsais & Romboides (Espessura)</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">3 Séries</span>
+              <span class="badge badge-reps">10 a 12 Reps</span>
+              <span class="badge badge-rir">RIR 2</span>
+              <span class="badge badge-rest" onclick="startTimer(90)">⏱️ 90s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Coluna reta e tronco estável. Puxe a manopla na direção do umbigo, apertando as escápulas uma contra a outra atrás.
+          </div>
+          <div class="sets-tracker" data-sets="3">
+            <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
+          </div>
+        </div>
+
+        <!-- Ex 4 -->
+        <div class="exercise-card" data-ex-id="b4">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">4</div>
+              <div class="exercise-title-group">
+                <h3>Elevação Lateral com Halteres</h3>
+                <span class="exercise-muscle-tag">Deltoide Lateral (Ombros Definidos)</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">12 a 15 Reps</span>
+              <span class="badge badge-rir">RIR 1</span>
+              <span class="badge badge-rest" onclick="startTimer(60)">⏱️ 60s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Levante os braços levemente à frente do corpo (no plano escapular, ~30°). Suba até a altura do ombro, sem usar impulso do corpo.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
+          </div>
+        </div>
+
+        <!-- Ex 5 -->
+        <div class="exercise-card" data-ex-id="b5">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">5</div>
+              <div class="exercise-title-group">
+                <h3>Tríceps na Polia com Corda</h3>
+                <span class="exercise-muscle-tag">Tríceps Braquial (Tônus de Braço)</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">3 Séries</span>
+              <span class="badge badge-reps">12 a 15 Reps</span>
+              <span class="badge badge-rir">RIR 1</span>
+              <span class="badge badge-rest" onclick="startTimer(60)">⏱️ 60s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Cotovelos colados ao lado do corpo. Estenda os braços completamente e afaste as pontas da corda para fora no final do movimento.
+          </div>
+          <div class="sets-tracker" data-sets="3">
+            <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT: TREINO C -->
+    <section id="treino-c" class="tab-content" style="display: none;">
+      <div class="section-banner">
+        <div class="banner-info">
+          <h2>🍑 TREINO C — Glúteo Máximo & Isquiotibiais</h2>
+          <p>Foco na cadeia posterior em alongamento mecânico e 2ª sessão semanal de elevação pélvica.</p>
+        </div>
+        <div class="banner-stats">
+          <div class="stat-pill">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Exercícios</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-value">18</div>
+            <div class="stat-label">Séries Totais</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-value">~55 min</div>
+            <div class="stat-label">Duração</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-list">
+        <!-- Ex 1 -->
+        <div class="exercise-card" data-ex-id="c1">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">1</div>
+              <div class="exercise-title-group">
+                <h3>Levantamento Terra Romeno / Stiff <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(RDL)</span></h3>
+                <span class="exercise-muscle-tag">Isquiotibiais & Glúteos em Alongamento</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">8 a 10 Reps</span>
+              <span class="badge badge-rir">RIR 2</span>
+              <span class="badge badge-rest" onclick="startTimer(120)">⏱️ 2 min descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Joelhos levemente flexionados e fixos. Empurre o quadril para trás como se fosse encostar na parede atrás; sinta a parte de trás da coxa esticar.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
+          </div>
+        </div>
+
+        <!-- Ex 2 -->
+        <div class="exercise-card" data-ex-id="c2">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">2</div>
+              <div class="exercise-title-group">
+                <h3>Elevação Pélvica com Barra <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Hip Thrust)</span></h3>
+                <span class="exercise-muscle-tag">Glúteo Máximo (Carga Mais Alta)</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">8 a 10 Reps</span>
+              <span class="badge badge-rir">RIR 1</span>
+              <span class="badge badge-rest" onclick="startTimer(120)">⏱️ 2 min descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Carga ligeiramente mais alta que no Treino A. Foque em extensão completa do quadril e trave 1s no topo.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
+          </div>
+        </div>
+
+        <!-- Ex 3 -->
+        <div class="exercise-card" data-ex-id="c3">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">3</div>
+              <div class="exercise-title-group">
+                <h3>Agachamento Búlgaro <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Split Squat com Halteres)</span></h3>
+                <span class="exercise-muscle-tag">Glúteo Máximo & Estabilizadores</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">3 Séries</span>
+              <span class="badge badge-reps">10 a 12 cada perna</span>
+              <span class="badge badge-rir">RIR 1-2</span>
+              <span class="badge badge-rest" onclick="startTimer(90)">⏱️ 90s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Pé de trás apenas apoiado no banco. Projete o tronco cerca de 20° para a frente para direcionar a sobrecarga ao glúteo da perna da frente.
+          </div>
+          <div class="sets-tracker" data-sets="3">
+            <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
+          </div>
+        </div>
+
+        <!-- Ex 4 -->
+        <div class="exercise-card" data-ex-id="c4">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">4</div>
+              <div class="exercise-title-group">
+                <h3>Cadeira Flexora</h3>
+                <span class="exercise-muscle-tag">Isquiotibiais (Posterior de Coxa)</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">10 a 12 Reps</span>
+              <span class="badge badge-rir">RIR 1</span>
+              <span class="badge badge-rest" onclick="startTimer(90)">⏱️ 90s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Ajuste o encosto para manter o quadril bem apoiado em 90°. Puxe até o limite da flexão e não deixe o peso bater na volta.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
+          </div>
+        </div>
+
+        <!-- Ex 5 -->
+        <div class="exercise-card" data-ex-id="c5">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">5</div>
+              <div class="exercise-title-group">
+                <h3>Cadeira Abdutora <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Tronco Inclinado à Frente)</span></h3>
+                <span class="exercise-muscle-tag">Glúteo Médio & Fibras Superiores</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">3 Séries</span>
+              <span class="badge badge-reps">15 a 20 Reps</span>
+              <span class="badge badge-rir">RIR 0-1</span>
+              <span class="badge badge-rest" onclick="startTimer(60)">⏱️ 60s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Descole as costas do encosto e incline o tronco para frente segurando na máquina. Abra com amplitude e controle a volta.
+          </div>
+          <div class="sets-tracker" data-sets="3">
+            <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT: TREINO D -->
+    <section id="treino-d" class="tab-content" style="display: none;">
+      <div class="section-banner">
+        <div class="banner-info">
+          <h2>✨ TREINO D — Superiores & Estabilidade de Core</h2>
+          <p>Foco em postura, deltoides na polia e ativação do abdômen sem aumentar a cintura.</p>
+        </div>
+        <div class="banner-stats">
+          <div class="stat-pill">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Exercícios</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-value">18</div>
+            <div class="stat-label">Séries Totais</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-value">~50 min</div>
+            <div class="stat-label">Duração</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-list">
+        <!-- Ex 1 -->
+        <div class="exercise-card" data-ex-id="d1">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">1</div>
+              <div class="exercise-title-group">
+                <h3>Remada Unilateral com Halter <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Serrote)</span></h3>
+                <span class="exercise-muscle-tag">Grande Dorsal (Unilateral)</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">8 a 10 cada braço</span>
+              <span class="badge badge-rir">RIR 2</span>
+              <span class="badge badge-rest" onclick="startTimer(90)">⏱️ 90s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Apoie um joelho e mão no banco. Puxe o halter fazendo um arco em direção ao quadril, não em direção ao ombro.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
+          </div>
+        </div>
+
+        <!-- Ex 2 -->
+        <div class="exercise-card" data-ex-id="d2">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">2</div>
+              <div class="exercise-title-group">
+                <h3>Desenvolvimento de Ombros com Halteres</h3>
+                <span class="exercise-muscle-tag">Deltoides & Força Vertical</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">3 Séries</span>
+              <span class="badge badge-reps">10 a 12 Reps</span>
+              <span class="badge badge-rir">RIR 2</span>
+              <span class="badge badge-rest" onclick="startTimer(90)">⏱️ 90s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Sentada em banco 75°-80°. Suba os halteres controladamente sem deixá-los bater no topo; desça até a altura das orelhas.
+          </div>
+          <div class="sets-tracker" data-sets="3">
+            <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
+          </div>
+        </div>
+
+        <!-- Ex 3 -->
+        <div class="exercise-card" data-ex-id="d3">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">3</div>
+              <div class="exercise-title-group">
+                <h3>Puxada com Triângulo na Polia</h3>
+                <span class="exercise-muscle-tag">Dorsal Medial & Teres Major</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">3 Séries</span>
+              <span class="badge badge-reps">10 a 12 Reps</span>
+              <span class="badge badge-rir">RIR 2</span>
+              <span class="badge badge-rest" onclick="startTimer(90)">⏱️ 90s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Pegada neutra fechada. Desça puxando o triângulo até o peito, mantendo o abdômen firme e sem balançar o tronco.
+          </div>
+          <div class="sets-tracker" data-sets="3">
+            <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
+          </div>
+        </div>
+
+        <!-- Ex 4 -->
+        <div class="exercise-card" data-ex-id="d4">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">4</div>
+              <div class="exercise-title-group">
+                <h3>Elevação Lateral na Polia <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Cabo Baixo)</span></h3>
+                <span class="exercise-muscle-tag">Deltoide Lateral (Tensão Contínua)</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">12 a 15 cada lado</span>
+              <span class="badge badge-rir">RIR 1</span>
+              <span class="badge badge-rest" onclick="startTimer(60)">⏱️ 60s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Posicione a polia na altura do joelho ou tornozelo. Puxe o cabo lateralmente mantendo tensão uniforme em todo o arco de movimento.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
+          </div>
+        </div>
+
+        <!-- Ex 5 -->
+        <div class="exercise-card" data-ex-id="d5">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">5</div>
+              <div class="exercise-title-group">
+                <h3>Prancha Isométrica / Pallof Press</h3>
+                <span class="exercise-muscle-tag">Core Profundo & Transverso do Abdômen</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">45 a 60 segundos</span>
+              <span class="badge badge-rir">Foco Tensão</span>
+              <span class="badge badge-rest" onclick="startTimer(60)">⏱️ 60s descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>Execução:</strong> Puxe o umbigo para dentro em direção à coluna. Fortalece a cinta abdominal sem causar hipertrofia oblíqua que alarga a cintura.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT: PERIODIZAÇÃO -->
+    <section id="periodizacao" class="tab-content" style="display: none;">
+      <div class="section-banner">
+        <div class="banner-info">
+          <h2>📈 Periodização Linear de 12 Semanas (Prestes et al., 2009)</h2>
+          <p>Como evoluir cargas e repetições mês a mês para garantir ganhos contínuos sem estagnação.</p>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <span class="phase-badge" style="background: rgba(20, 184, 166, 0.2); color: #2dd4bf;">SEMANAS 1 A 4</span>
+          <h4>Fase 1: Adaptação & Volume</h4>
+          <p><strong>Faixa de Reps:</strong> 12 a 14 repetições por série.</p>
+          <p><strong>Intensidade:</strong> RIR 2 a 3 (cargas moderadas com domínio de técnica e cadência controlada).</p>
+          <p style="margin-top: 8px;">Foco em condicionamento articular, conexão neuromuscular e estímulo sarcoplasmático inicial.</p>
+        </div>
+
+        <div class="info-card">
+          <span class="phase-badge" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">SEMANAS 5 A 8</span>
+          <h4>Fase 2: Hipertrofia Principal</h4>
+          <p><strong>Faixa de Reps:</strong> 8 a 10 repetições por série.</p>
+          <p><strong>Intensidade:</strong> RIR 1 a 2 (aumento de 5% a 10% no peso de todos os exercícios).</p>
+          <p style="margin-top: 8px;">Zona nobre de tensão mecânica e recrutamento de fibras musculares de contração rápida.</p>
+        </div>
+
+        <div class="info-card">
+          <span class="phase-badge" style="background: rgba(244, 63, 94, 0.2); color: #fb7185;">SEMANAS 9 A 11</span>
+          <h4>Fase 3: Tensão Máxima & Força</h4>
+          <p><strong>Faixa de Reps:</strong> 6 a 8 repetições nos exercícios básicos (Squat, Hip Thrust, RDL).</p>
+          <p><strong>Intensidade:</strong> RIR 1 (cargas pesadas com boa postura).</p>
+          <p style="margin-top: 8px;">Estímulo de alto limiar para densidade muscular e ganhos substanciais de força dinâmica.</p>
+        </div>
+
+        <div class="info-card">
+          <span class="phase-badge" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">SEMANA 12</span>
+          <h4>Fase 4: Deload (Semana de Descarga)</h4>
+          <p><strong>Faixa de Reps:</strong> 10 repetições com cargas moderadas.</p>
+          <p><strong>Volume:</strong> Corte de 50% nas séries (faça apenas 2 séries por exercício).</p>
+          <p style="margin-top: 8px;">Dissipa a fadiga acumulada no sistema nervoso central e articulações, gerando a supercompensação de massa magra.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT: CIÊNCIA & DIRETRIZES -->
+    <section id="ciencia" class="tab-content" style="display: none;">
+      <div class="section-banner">
+        <div class="banner-info">
+          <h2>🧬 Regras de Ouro & Evidências Científicas</h2>
+          <p>O que a ciência comprovou e como aplicar na sua rotina diária.</p>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>🎯 O que é RIR (Repetições em Reserva)?</h4>
+          <p>RIR é o indicador mais preciso de intensidade. <strong>RIR 2</strong> significa que você deve parar a série quando souber que só conseguiria completar mais 2 repetições se desse o seu máximo. Treinar perto da falha (RIR 1-2) gera 100% dos ganhos de hipertrofia sem causar desgaste articular prematuro.</p>
+        </div>
+
+        <div class="info-card">
+          <h4>⚖️ Regra da Progressão Dupla</h4>
+          <p>Nunca tente subir o peso todo treino. Primeiro, mantenha o mesmo peso até atingir o teto de repetições (ex.: 10 reps) em todas as séries daquele exercício. Somente após conseguir isso, suba de 1 a 2 kg de cada lado no treino seguinte e comece novamente em 8 repetições.</p>
+        </div>
+
+        <div class="info-card">
+          <h4>🌸 Ciclo Menstrual (Colenso-Semple et al., 2023)</h4>
+          <p>A mais recente revisão guarda-chuva demonstrou que flutuações hormonais não alteram os ganhos de força e hipertrofia a longo prazo. Não mude seu treino por causa da fase folicular ou lútea. Use apenas a <strong>auto-regulação</strong>: se em 1 ou 2 dias de cólica você sentir cansaço extremo, reduza 10% da carga naquele dia específico e volte normalmente no próximo.</p>
+        </div>
+
+        <div class="info-card">
+          <h4>🥗 O Segredo da Definição Corporal</h4>
+          <p>"Definição" não é exercício especial com muitas repetições leves: é ter <strong>massa muscular desenvolvida</strong> sob uma <strong>camada fina de gordura</strong>. A musculação constrói o tônus muscular e a alimentação (1,6 a 2,2 g/kg de proteína diária + leve controle calórico) revela as linhas do corpo.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Rest Timer Widget -->
+  <div id="floatingTimer" class="floating-timer">
+    <div>
+      <div style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase; font-weight: 700;">Descanso</div>
+      <div id="timerDisplay" class="timer-display">02:00</div>
+    </div>
+    <div class="timer-controls">
+      <button class="btn-timer-ctrl" onclick="addTimer(30)">+30s</button>
+      <button class="btn-timer-ctrl" onclick="stopTimer()">✕ Parar</button>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching logic
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      
+      const targetContent = document.getElementById(tabId);
+      if (targetContent) targetContent.style.display = 'block';
+      
+      const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(btn => 
+        btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabId)
+      );
+      if (activeBtn) activeBtn.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Interactive Sets Tracker logic
+    const STORAGE_KEY = 'ficha_treino_sets_v1';
+    let savedState = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+    function initSetsTracker() {
+      document.querySelectorAll('.sets-tracker').forEach(container => {
+        const card = container.closest('.exercise-card');
+        const exId = card.getAttribute('data-ex-id');
+        const count = parseInt(container.getAttribute('data-sets') || '3');
+        
+        // Remove existing pills if any (keep trigger btn)
+        const oldPills = container.querySelectorAll('.set-pill');
+        oldPills.forEach(p => p.remove());
+
+        const triggerBtn = container.querySelector('.btn-timer-trigger');
+
+        for (let i = 1; i <= count; i++) {
+          const pill = document.createElement('div');
+          pill.className = 'set-pill';
+          const isDone = savedState[`${exId}_s${i}`] === true;
+          if (isDone) pill.classList.add('done');
+          pill.innerHTML = `<span>Série ${i}</span> <span>${isDone ? '✓' : '○'}</span>`;
+          
+          pill.addEventListener('click', () => {
+            const nextDone = !pill.classList.contains('done');
+            pill.classList.toggle('done', nextDone);
+            pill.querySelector('span:last-child').textContent = nextDone ? '✓' : '○';
+            savedState[`${exId}_s${i}`] = nextDone;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(savedState));
+            updateCardCompletion(card);
+          });
+
+          container.insertBefore(pill, triggerBtn);
+        }
+        updateCardCompletion(card);
+      });
+    }
+
+    function updateCardCompletion(card) {
+      const pills = Array.from(card.querySelectorAll('.set-pill'));
+      const allDone = pills.length > 0 && pills.every(p => p.classList.contains('done'));
+      card.classList.toggle('completed', allDone);
+    }
+
+    // Reset button
+    document.getElementById('btnResetAll').addEventListener('click', () => {
+      if (confirm('Deseja desmarcar todas as séries concluídas para começar uma nova semana?')) {
+        savedState = {};
+        localStorage.removeItem(STORAGE_KEY);
+        initSetsTracker();
+      }
+    });
+
+    // Floating Timer logic
+    let timerInterval = null;
+    let secondsLeft = 0;
+    const floatingTimerEl = document.getElementById('floatingTimer');
+    const timerDisplayEl = document.getElementById('timerDisplay');
+
+    function startTimer(seconds) {
+      clearInterval(timerInterval);
+      secondsLeft = seconds;
+      updateDisplay();
+      floatingTimerEl.style.display = 'flex';
+
+      timerInterval = setInterval(() => {
+        secondsLeft--;
+        if (secondsLeft <= 0) {
+          clearInterval(timerInterval);
+          secondsLeft = 0;
+          updateDisplay();
+          timerDisplayEl.textContent = 'PRONTO!';
+          if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+          setTimeout(() => {
+            floatingTimerEl.style.display = 'none';
+          }, 3500);
+        } else {
+          updateDisplay();
+        }
+      }, 1000);
+    }
+
+    function addTimer(extra) {
+      secondsLeft += extra;
+      updateDisplay();
+    }
+
+    function stopTimer() {
+      clearInterval(timerInterval);
+      floatingTimerEl.style.display = 'none';
+    }
+
+    function updateDisplay() {
+      const mins = Math.floor(secondsLeft / 60);
+      const secs = secondsLeft % 60;
+      timerDisplayEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Auto-select tab according to current day of the week
+    function autoSelectTodayTab() {
+      const day = new Date().getDay(); // 0 Dom, 1 Seg, 2 Ter, 3 Qua, 4 Qui, 5 Sex, 6 Sab
+      if (day === 1) switchTab('treino-a');
+      else if (day === 2) switchTab('treino-b');
+      else if (day === 4) switchTab('treino-c');
+      else if (day === 5) switchTab('treino-d');
+      else switchTab('treino-a'); // default
+    }
+
+    // Init
+    initSetsTracker();
+    autoSelectTodayTab();
+  </script>
+</body>
+</html>
