@@ -541,6 +541,103 @@
       color: var(--primary-light);
     }
 
+    /* Post-Workout Stretching Styles */
+    .stretching-block {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-top: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+
+    .stretching-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+    }
+
+    .stretching-title-group h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stretching-title-group p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    .stretching-badge-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #38bdf8;
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 4px;
+    }
+
+    .stretching-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .stretching-item-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+
+    .stretching-item-card:hover {
+      border-color: #38bdf8;
+      background: var(--card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.15);
+    }
+
+    .stretching-item-card.completed {
+      background: rgba(16, 185, 129, 0.07);
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .stretching-badge-step {
+      width: 30px;
+      height: 30px;
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+
     /* Periodization & Science View */
     .info-grid {
       display: grid;
@@ -636,7 +733,7 @@
     @media print {
       body { background: #ffffff; color: #000000; padding: 0; }
       header, .tab-bar, .floating-timer, .btn-timer-trigger { display: none !important; }
-      .exercise-card, .activation-block, .activation-item-card { page-break-inside: avoid; border: 1px solid #ccc; background: #fff; margin-bottom: 10px; color: #000; }
+      .exercise-card, .activation-block, .activation-item-card, .stretching-block, .stretching-item-card { page-break-inside: avoid; border: 1px solid #ccc; background: #fff; margin-bottom: 10px; color: #000; }
       .cue-box { background: #f5f5f5; border-left-color: #000; color: #333; }
       .badge { border: 1px solid #aaa; color: #000 !important; background: transparent !important; }
     }
@@ -739,6 +836,10 @@
           <div class="stat-pill">
             <div class="stat-value">~60 min</div>
             <div class="stat-label">Duração</div>
+          </div>
+          <div class="stat-pill" style="border-color: rgba(56, 189, 248, 0.4);">
+            <div class="stat-value" style="color: #38bdf8;">🧘 4</div>
+            <div class="stat-label">Alongamentos</div>
           </div>
         </div>
       </div>
@@ -991,6 +1092,128 @@
           </div>
         </div>
       </div>
+
+      <!-- SEQUÊNCIA DE ALONGAMENTO (PÓS-TREINO) -->
+      <div class="stretching-block">
+        <div class="stretching-header">
+          <div class="stretching-title-group">
+            <span class="stretching-badge-tag">🧘 Descompressão & Flexibilidade Pós-Treino</span>
+            <h3 class="stretching-title">Sequência de Alongamento — Treino A</h3>
+            <p class="stretching-subtitle">4 posturas de recuperação estática (30–45s cada). Alivia a tensão nos flexores do quadril, glúteos e quadríceps após os agachamentos e elevação pélvica, preservando a fáscia e restaurando a amplitude articular.</p>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Volta Estática</span>
+            <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30s a 45s / lado</span>
+            <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s troca</span>
+          </div>
+        </div>
+
+        <div class="stretching-cards-grid">
+          <!-- Alongamento A1 -->
+          <div class="stretching-item-card" data-ex-id="a_str1">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘1</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Posição do Cavaleiro <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Kneeling Lunge)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Psoas & Flexores do Quadril</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série / Lado</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30 a 45s Cada</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Um joelho no chão e outro flexionado à frente a 90°. Encaixe a pelve (retroversão) e projete suavemente o quadril à frente sem arquear a lombar.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Alongamento A2 -->
+          <div class="stretching-item-card" data-ex-id="a_str2">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘2</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Postura do Pombo <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Pigeon Pose ou Figura 4)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Glúteo Máximo, Médio & Piriforme</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série / Lado</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30 a 45s Cada</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Perna da frente dobrada com o tornozelo na direção do quadril oposto; perna de trás estendida. Desça o tronco respirando fundo para alongar fundo o glúteo.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Alongamento A3 -->
+          <div class="stretching-item-card" data-ex-id="a_str3">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘3</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Alongamento de Quadríceps <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Em Pé ou Deitada)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Reto Femoral & Vasto Anterior</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série / Lado</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30 a 40s Cada</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Segure o peito do pé puxando o calcanhar em direção ao glúteo. Mantenha os joelhos alinhados lado a lado e empurre a pelve levemente à frente.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Alongamento A4 -->
+          <div class="stretching-item-card" data-ex-id="a_str4">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘4</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Panturrilha na Parede <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Calf Stretch)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Gastrocnêmio & Tendão de Aquiles</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série / Lado</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30s Cada</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Apoie as mãos na parede, estenda uma perna para trás mantendo o calcanhar todo cravado no chão e flexione o joelho dianteiro até sentir alongar a panturrilha.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- CONTENT: TREINO B -->
@@ -1012,6 +1235,10 @@
           <div class="stat-pill">
             <div class="stat-value">~50 min</div>
             <div class="stat-label">Duração</div>
+          </div>
+          <div class="stat-pill" style="border-color: rgba(56, 189, 248, 0.4);">
+            <div class="stat-value" style="color: #38bdf8;">🧘 4</div>
+            <div class="stat-label">Alongamentos</div>
           </div>
         </div>
       </div>
@@ -1142,6 +1369,128 @@
           </div>
         </div>
       </div>
+
+      <!-- SEQUÊNCIA DE ALONGAMENTO (PÓS-TREINO) -->
+      <div class="stretching-block">
+        <div class="stretching-header">
+          <div class="stretching-title-group">
+            <span class="stretching-badge-tag">🧘 Descompressão & Flexibilidade Pós-Treino</span>
+            <h3 class="stretching-title">Sequência de Alongamento — Treino B</h3>
+            <p class="stretching-subtitle">4 posturas para aliviar a tensão nos ombros, peitoral, grande dorsal e tríceps após as puxadas e elevações laterais, melhorando a mobilidade da cintura escapular e a postura.</p>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Volta Estática</span>
+            <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30s a 45s / lado</span>
+            <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s troca</span>
+          </div>
+        </div>
+
+        <div class="stretching-cards-grid">
+          <!-- Alongamento B1 -->
+          <div class="stretching-item-card" data-ex-id="b_str1">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘1</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Abertura de Peitoral na Parede <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Chest Opener)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Peitoral Maior & Deltoide Anterior</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série / Lado</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30 a 45s Cada</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Apoie o antebraço a 90° em uma parede ou portal. Gire suavemente o tronco para o lado oposto até sentir abrir o peito e a frente do ombro.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Alongamento B2 -->
+          <div class="stretching-item-card" data-ex-id="b_str2">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘2</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Postura da Criança <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Child's Pose c/ Braços Longos)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Grande Dorsal & Coluna Torácica</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">45s a 60s</span>
+                <span class="badge badge-rest" onclick="startTimer(45)">⏱️ 45s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Joelhos afastados no colchonete, sente sobre os calcanhares e deslize as mãos bem à frente no chão. Pressione o peito em direção ao solo soltando as dorsais.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(45)">⏱️ 45s</button>
+            </div>
+          </div>
+
+          <!-- Alongamento B3 -->
+          <div class="stretching-item-card" data-ex-id="b_str3">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘3</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Tríceps Acima da Cabeça <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Overhead Triceps)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Tríceps & Cabeça Longa</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série / Lado</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30s Cada</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Levante um braço, dobre o cotovelo apontando para cima com a mão nas costas e use a outra mão para puxar suavemente o cotovelo para trás da cabeça.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Alongamento B4 -->
+          <div class="stretching-item-card" data-ex-id="b_str4">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘4</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Deltoide Posterior Cruzado <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Cross-Body Shoulder)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Deltoide Posterior & Manguito</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série / Lado</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30s Cada</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Cruze um braço estendido na frente do peito e use o outro antebraço para puxá-lo em direção ao corpo, mantendo os ombros baixos e relaxados.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- CONTENT: TREINO C -->
@@ -1167,6 +1516,10 @@
           <div class="stat-pill">
             <div class="stat-value">~55 min</div>
             <div class="stat-label">Duração</div>
+          </div>
+          <div class="stat-pill" style="border-color: rgba(56, 189, 248, 0.4);">
+            <div class="stat-value" style="color: #38bdf8;">🧘 4</div>
+            <div class="stat-label">Alongamentos</div>
           </div>
         </div>
       </div>
@@ -1394,6 +1747,128 @@
           </div>
         </div>
       </div>
+
+      <!-- SEQUÊNCIA DE ALONGAMENTO (PÓS-TREINO) -->
+      <div class="stretching-block">
+        <div class="stretching-header">
+          <div class="stretching-title-group">
+            <span class="stretching-badge-tag">🧘 Descompressão & Flexibilidade Pós-Treino</span>
+            <h3 class="stretching-title">Sequência de Alongamento — Treino C</h3>
+            <p class="stretching-subtitle">4 posturas essenciais para descomprimir a cadeia posterior e lombar após Stiff, Búlgaro e Cadeira Flexora. Ajuda a relaxar o ciático, reverter rigidez nos isquiotibiais e soltar os glúteos profundos.</p>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Volta Estática</span>
+            <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30s a 45s / lado</span>
+            <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s troca</span>
+          </div>
+        </div>
+
+        <div class="stretching-cards-grid">
+          <!-- Alongamento C1 -->
+          <div class="stretching-item-card" data-ex-id="c_str1">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘1</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Isquiotibiais com Faixa / Toalha <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Hamstring Stretch)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Posterior de Coxa & Panturrilha</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série / Lado</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30 a 45s Cada</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Deitada de costas, passe uma faixa ou toalha na sola de um pé e eleve a perna reta em direção ao teto, puxando suavemente até sentir toda a parte posterior da coxa.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Alongamento C2 -->
+          <div class="stretching-item-card" data-ex-id="c_str2">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘2</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Figura 4 no Chão <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Glute & Piriformis)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Glúteo & Ciático</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série / Lado</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30 a 45s Cada</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Deitada de costas, cruze o tornozelo sobre o joelho oposto formando o número 4. Abrace por trás da coxa da perna de apoio e puxe em direção ao peito.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Alongamento C3 -->
+          <div class="stretching-item-card" data-ex-id="c_str3">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘3</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Borboleta Sentada <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Baddha Konasana)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Adutores & Mobilidade de Quadril</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">45s a 60s</span>
+                <span class="badge badge-rest" onclick="startTimer(45)">⏱️ 45s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Sentada com as solas dos pés unidas e joelhos caídos para os lados. Segure os pés, mantenha a coluna reta e incline suavemente o tronco para frente.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(45)">⏱️ 45s</button>
+            </div>
+          </div>
+
+          <!-- Alongamento C4 -->
+          <div class="stretching-item-card" data-ex-id="c_str4">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘4</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Abraço dos Joelhos no Peito <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Apanasana)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Lombar & Paravertebrais</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30s a 45s</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Deitada de costas, puxe ambos os joelhos contra o peito abraçando-os com os braços. Relaxe a cabeça no colchonete e faça suaves balanços laterais para massagear a lombar.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- CONTENT: TREINO D -->
@@ -1415,6 +1890,10 @@
           <div class="stat-pill">
             <div class="stat-value">~50 min</div>
             <div class="stat-label">Duração</div>
+          </div>
+          <div class="stat-pill" style="border-color: rgba(56, 189, 248, 0.4);">
+            <div class="stat-value" style="color: #38bdf8;">🧘 4</div>
+            <div class="stat-label">Alongamentos</div>
           </div>
         </div>
       </div>
@@ -1542,6 +2021,128 @@
           </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEQUÊNCIA DE ALONGAMENTO (PÓS-TREINO) -->
+      <div class="stretching-block">
+        <div class="stretching-header">
+          <div class="stretching-title-group">
+            <span class="stretching-badge-tag">🧘 Descompressão & Flexibilidade Pós-Treino</span>
+            <h3 class="stretching-title">Sequência de Alongamento — Treino D</h3>
+            <p class="stretching-subtitle">4 posturas focadas em abrir o peitoral, descomprimir o core anterior e relaxar a musculatura escapular e cervical após remadas, elevações e pranchas, promovendo relaxamento e alinhamento postural.</p>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Volta Estática</span>
+            <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30s a 45s / postura</span>
+            <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s troca</span>
+          </div>
+        </div>
+
+        <div class="stretching-cards-grid">
+          <!-- Alongamento D1 -->
+          <div class="stretching-item-card" data-ex-id="d_str1">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘1</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Postura da Cobra / Esfinge <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Bhujangasana)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Reto Abdominal & Core Anterior</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30s a 45s</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Deitada de bruços, apoie as palmas das mãos ou antebraços no chão abaixo dos ombros e eleve o peito suavemente. Mantenha os ombros longe das orelhas e sinta o abdômen abrir.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Alongamento D2 -->
+          <div class="stretching-item-card" data-ex-id="d_str2">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘2</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Linha na Agulha no Solo <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Thread the Needle)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Romboides & Mobilidade Torácica</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série / Lado</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30 a 45s Cada</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Em posição de 4 apoios, passe um braço por baixo do tronco até encostar o ombro e a têmpora no chão. Respire fundo, soltando a tensão entre as escápulas.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Alongamento D3 -->
+          <div class="stretching-item-card" data-ex-id="d_str3">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘3</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Inclinação Lateral de Tronco <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Side Bend Sentada ou em Pé)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Grande Dorsal & Quadrado Lombar</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série / Lado</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">30s Cada</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Sentada ou de pé, eleve um braço por cima da cabeça e incline o tronco para o lado oposto sem girar o peito para baixo. Sinta toda a lateral das costelas e costas abrir.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Alongamento D4 -->
+          <div class="stretching-item-card" data-ex-id="d_str4">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="stretching-badge-step">🧘4</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Alongamento Suave de Trapézio <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Pescoço & Escalenos)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Trapézio Superior & Cervical</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-sets" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">1 Série / Lado</span>
+                <span class="badge badge-reps" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">25 a 30s Cada</span>
+                <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s timer</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 10px; font-size: 0.85rem; padding: 10px 12px;">
+                💡 <strong>Execução:</strong> Coluna ereta e ombros relaxados. Incline a cabeça suavemente em direção a um dos ombros com o próprio peso da mão, sem puxar com força. Sinta o trapézio alongar.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="1">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
           </div>
         </div>
       </div>
@@ -1807,7 +2408,7 @@
 
     function initSetsTracker() {
       document.querySelectorAll('.sets-tracker').forEach(container => {
-        const card = container.closest('.exercise-card, .activation-item-card');
+        const card = container.closest('.exercise-card, .activation-item-card, .stretching-item-card');
         if (!card) return;
         const exId = card.getAttribute('data-ex-id');
         const count = parseInt(container.getAttribute('data-sets') || '3');
@@ -1823,7 +2424,9 @@
           pill.className = 'set-pill';
           const isDone = savedState[`${exId}_s${i}`] === true;
           if (isDone) pill.classList.add('done');
-          pill.innerHTML = `<span>Série ${i}</span> <span>${isDone ? '✓' : '○'}</span>`;
+          const isStretch = card.classList.contains('stretching-item-card');
+          const label = isStretch ? 'Alongado' : `Série ${i}`;
+          pill.innerHTML = `<span>${label}</span> <span>${isDone ? '✓' : '○'}</span>`;
           
           pill.addEventListener('click', () => {
             const nextDone = !pill.classList.contains('done');

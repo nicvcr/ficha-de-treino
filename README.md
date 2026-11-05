@@ -31,6 +31,11 @@ Aplicação interativa de periodização e acompanhamento de treinos baseada em 
 4. **[4º Movimento Prolongado] Agachamento Livre com Barra** *(Back Squat Profundo)* — 4 séries × 8–10 reps (Cadência excêntrica lenta de 3s)
 5. **Cadeira Extensora** — 3 séries × 12–15 reps
 6. **Panturrilha em Pé** *(Smith ou Máquina)* — 4 séries × 12–15 reps
+- **🧘 Sequência de Alongamento (Pós-Treino — 30 a 45s cada):**
+  - **Posição do Cavaleiro (Kneeling Lunge):** Descompressão de psoas e flexores do quadril.
+  - **Postura do Pombo (Pigeon Pose / Figura 4):** Abertura profunda de glúteo máximo, médio e piriforme.
+  - **Alongamento de Quadríceps (Em pé ou deitada):** Relaxamento do reto femoral e vastos.
+  - **Panturrilha na Parede:** Descompressão de gastrocnêmio e tendão de Aquiles.
 
 ### 💪 Treino B — Superiores, Dorsais & Ombros
 1. **Puxada Frontal na Polia** *(Lat Pulldown)* — 4 séries × 8–10 reps
@@ -38,6 +43,11 @@ Aplicação interativa de periodização e acompanhamento de treinos baseada em 
 3. **Remada Baixa na Polia** *(Pegada Neutra / Triângulo)* — 3 séries × 10–12 reps
 4. **Elevação Lateral com Halteres** — 4 séries × 12–15 reps
 5. **Tríceps na Polia com Corda** — 3 séries × 12–15 reps
+- **🧘 Sequência de Alongamento (Pós-Treino — 30 a 45s cada):**
+  - **Abertura de Peitoral na Parede (Chest Opener):** Alívio de peitoral e deltoide anterior.
+  - **Postura da Criança (Child's Pose):** Descompressão do grande dorsal e coluna torácica.
+  - **Tríceps Acima da Cabeça (Overhead Triceps):** Alongamento do tríceps braquial e cabeça longa.
+  - **Deltoide Posterior Cruzado (Cross-Body Shoulder):** Mobilidade escapular e deltoide posterior.
 
 ### 🍑 Treino C — Glúteo Máximo & Isquiotibiais *(Ordem do Truque da Contração)*
 - **🔥 Ativação de Glúteo (Pré-Treino — 1 a 2 voltas):**
@@ -49,6 +59,11 @@ Aplicação interativa de periodização e acompanhamento de treinos baseada em 
 3. **[3º Isometria Unilateral] Agachamento Búlgaro** *(Bulgarian Split Squat)* — 3 séries × 10–12 reps/lado (Pausa isométrica de 1-2s no ponto fundo)
 4. **[4º Movimento Prolongado] Levantamento Terra Romeno / Stiff** *(RDL)* — 4 séries × 8–10 reps (Descida excêntrica prolongada de 3-4s)
 5. **Cadeira Flexora** — 4 séries × 10–12 reps
+- **🧘 Sequência de Alongamento (Pós-Treino — 30 a 45s cada):**
+  - **Isquiotibiais com Faixa / Toalha:** Descompressão de toda a cadeia posterior e panturrilha.
+  - **Figura 4 no Chão:** Descompressão de glúteo máximo e alívio do ciático.
+  - **Borboleta Sentada (Baddha Konasana):** Mobilidade articular de quadril e adutores.
+  - **Abraço dos Joelhos no Peito (Apanasana):** Descompressão da coluna lombar e paravertebrais.
 
 ### ✨ Treino D — Superiores & Estabilidade de Core
 1. **Remada Unilateral com Halter** *(Serrote)* — 3 séries × 10–12 reps/lado
@@ -56,6 +71,11 @@ Aplicação interativa de periodização e acompanhamento de treinos baseada em 
 3. **Puxada com Triângulo na Polia** — 3 séries × 10–12 reps
 4. **Elevação Lateral na Polia** *(Cabo Baixo)* — 4 séries × 12–15 reps
 5. **Prancha Isométrica / Pallof Press** — 3 séries de 45–60s
+- **🧘 Sequência de Alongamento (Pós-Treino — 30 a 45s cada):**
+  - **Postura da Cobra / Esfinge (Bhujangasana):** Abertura do reto abdominal e fáscia anterior.
+  - **Linha na Agulha no Solo (Thread the Needle):** Rotação torácica e alívio entre as escápulas (romboides).
+  - **Inclinação Lateral de Tronco (Side Bend):** Liberação de quadrado lombar e grande dorsal.
+  - **Alongamento Suave de Trapézio (Pescoço):** Relaxamento de trapézio superior e cervical.
 
 ---
 
