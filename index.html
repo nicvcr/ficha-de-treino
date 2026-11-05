@@ -367,6 +367,14 @@
       color: #ffffff;
     }
 
+    .badge-hierarchy {
+      background: rgba(139, 92, 246, 0.2);
+      color: #c084fc;
+      border: 1px solid rgba(139, 92, 246, 0.45);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
     .cue-box {
       background: rgba(15, 23, 42, 0.7);
       border-left: 3px solid var(--primary);
@@ -434,6 +442,103 @@
       background: #283754;
       color: #ffffff;
       border-color: var(--accent);
+    }
+
+    /* Glute Activation Block Styles */
+    .activation-block {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+      border: 1px solid rgba(236, 72, 153, 0.25);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+
+    .activation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(236, 72, 153, 0.2);
+    }
+
+    .activation-title-group h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .activation-title-group p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    .activation-badge-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary-light);
+      background: rgba(236, 72, 153, 0.15);
+      border: 1px solid rgba(236, 72, 153, 0.35);
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 4px;
+    }
+
+    .activation-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 14px;
+    }
+
+    .activation-item-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(236, 72, 153, 0.2);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+
+    .activation-item-card:hover {
+      border-color: var(--primary-light);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(236, 72, 153, 0.15);
+    }
+
+    .activation-item-card.completed {
+      background: rgba(16, 185, 129, 0.07);
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .activation-badge-step {
+      width: 30px;
+      height: 30px;
+      background: rgba(236, 72, 153, 0.15);
+      border: 1px solid rgba(236, 72, 153, 0.35);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--primary-light);
     }
 
     /* Periodization & Science View */
@@ -531,7 +636,7 @@
     @media print {
       body { background: #ffffff; color: #000000; padding: 0; }
       header, .tab-bar, .floating-timer, .btn-timer-trigger { display: none !important; }
-      .exercise-card { page-break-inside: avoid; border: 1px solid #ccc; background: #fff; margin-bottom: 10px; }
+      .exercise-card, .activation-block, .activation-item-card { page-break-inside: avoid; border: 1px solid #ccc; background: #fff; margin-bottom: 10px; color: #000; }
       .cue-box { background: #f5f5f5; border-left-color: #000; color: #333; }
       .badge { border: 1px solid #aaa; color: #000 !important; background: transparent !important; }
     }
@@ -571,7 +676,7 @@
       <button class="tab-btn active" onclick="switchTab('treino-a')">
         <span class="tab-day">Segunda</span>
         <span class="tab-title">Treino A</span>
-        <span class="tab-meta">Glúteo & Coxa (18s)</span>
+        <span class="tab-meta">Glúteo & Coxa (21s)</span>
       </button>
 
       <button class="tab-btn" onclick="switchTab('treino-b')">
@@ -592,6 +697,12 @@
         <span class="tab-meta">Costas, Ombros & Core (18s)</span>
       </button>
 
+      <button class="tab-btn" onclick="switchTab('ativacao')">
+        <span class="tab-day">Aquecimento</span>
+        <span class="tab-title">Ativação</span>
+        <span class="tab-meta">Glúteos (3 Passos)</span>
+      </button>
+
       <button class="tab-btn" onclick="switchTab('periodizacao')">
         <span class="tab-day">12 Semanas</span>
         <span class="tab-title">Periodização</span>
@@ -610,86 +721,186 @@
       <div class="section-banner">
         <div class="banner-info">
           <h2>🏋️‍♀️ TREINO A — Glúteo Máximo & Quadríceps</h2>
-          <p>Foco em amplitude profunda de agachamento e contração no ponto de pico da pelve.</p>
+          <p>Ordem do Truque da Contração: 1º Plano Frontal → 2º Extensão → 3º Isometria Unilateral → 4º Movimento Prolongado.</p>
         </div>
         <div class="banner-stats">
+          <div class="stat-pill" style="border-color: rgba(236, 72, 153, 0.4);">
+            <div class="stat-value" style="color: #f472b6;">🔥 3</div>
+            <div class="stat-label">Ativação Pré</div>
+          </div>
           <div class="stat-pill">
-            <div class="stat-value">5</div>
+            <div class="stat-value">6</div>
             <div class="stat-label">Exercícios</div>
           </div>
           <div class="stat-pill">
-            <div class="stat-value">18</div>
+            <div class="stat-value">21</div>
             <div class="stat-label">Séries Totais</div>
           </div>
           <div class="stat-pill">
-            <div class="stat-value">~55 min</div>
+            <div class="stat-value">~60 min</div>
             <div class="stat-label">Duração</div>
           </div>
         </div>
       </div>
 
+      <!-- SEQUÊNCIA DE ATIVAÇÃO DE GLÚTEO (PRÉ-TREINO) -->
+      <div class="activation-block">
+        <div class="activation-header">
+          <div class="activation-title-group">
+            <span class="activation-badge-tag">🔥 Aquecimento Específico Obrigatório</span>
+            <h3 class="activation-title">Sequência de Ativação de Glúteo</h3>
+            <p class="activation-subtitle">Faça 1 a 2 voltas sem descanso prolongado antes de iniciar as cargas pesadas. "Acorda" os glúteos máximo e médio para evitar que quadríceps e lombares roubem a carga no agachamento e na elevação pélvica.</p>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-sets">1 a 2 Voltas</span>
+            <span class="badge badge-rir" style="background: rgba(139, 92, 246, 0.15); color: #c084fc; border-color: rgba(139, 92, 246, 0.3);">Sem Falha Central</span>
+            <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s descanso</span>
+          </div>
+        </div>
+
+        <div class="activation-cards-grid">
+          <!-- Ativação 1: Ostra -->
+          <div class="activation-item-card" data-ex-id="a_act1">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="activation-badge-step">🔥1</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Ostra <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Abdução Deitada)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem;">Glúteo Médio & Mínimo</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-reps">15 a 20 Movimentos</span>
+                <span class="badge badge-rir" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border-color: rgba(236, 72, 153, 0.3);">Segura 2s e Fecha</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 12px; font-size: 0.8rem;">
+                💡 <strong>Execução:</strong> Deitada de lado, joelhos flexionados a 90° e calcanhares juntos. Faça a abdução abrindo o joelho de cima; <strong>segura 2 segundos na contração máxima e fecha</strong> controlando o movimento sem rodar o quadril para trás (15 a 20 cada lado).
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="2">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Ativação 2: Extensão de Quadril -->
+          <div class="activation-item-card" data-ex-id="a_act2">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="activation-badge-step">🔥2</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Extensão de Quadril <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Apoio na Parede)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem;">Glúteo Máximo (Pico de Contração)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-reps">15 a 20 Movimentos</span>
+                <span class="badge badge-rir" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border-color: rgba(236, 72, 153, 0.3);">2s de Contração</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 12px; font-size: 0.8rem;">
+                💡 <strong>Execução:</strong> Em pé com as mãos apoiadas na parede e tronco alinhado. Estenda a perna para trás mantendo o abdômen travado (sem hiperestender a lombar); <strong>segure 2s de contração forte no topo</strong> e retorne controlando (15 a 20 cada perna).
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="2">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Ativação 3: Passada Lateral -->
+          <div class="activation-item-card" data-ex-id="a_act3">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="activation-badge-step">🔥3</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Passada Lateral <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Lateral Band Walk)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem;">Glúteo Médio & Estabilidade Pélvica</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-reps">15 a 20 Movimentos</span>
+                <span class="badge badge-rir" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border-color: rgba(236, 72, 153, 0.3);">Tensão Constante</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 12px; font-size: 0.8rem;">
+                💡 <strong>Execução:</strong> Base de meio-agachamento, peito ereto e joelhos na linha das pontas dos pés. Dê passadas laterais controladas. <strong>Nunca junte os pés totalmente</strong> para manter a musculatura sob tensão contínua durante todos os 15 a 20 passos.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="2">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="exercise-list">
-        <!-- Ex 1 -->
+        <!-- Ex 1: Plano Frontal (Abdução de Quadril) -->
         <div class="exercise-card" data-ex-id="a1">
           <div class="card-top">
             <div class="exercise-header">
               <div class="exercise-number">1</div>
               <div class="exercise-title-group">
-                <h3>Agachamento Livre com Barra <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Back Squat)</span></h3>
-                <span class="exercise-muscle-tag">Glúteo Máximo, Quadríceps & Adutores</span>
+                <h3>Cadeira Abdutora <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(ou Abdução na Polia)</span></h3>
+                <span class="exercise-muscle-tag">Glúteo Médio & Mínimo (Estabilização da Pelve)</span>
               </div>
             </div>
             <div class="badges-row">
-              <span class="badge badge-sets">4 Séries</span>
-              <span class="badge badge-reps">8 a 10 Reps</span>
-              <span class="badge badge-rir" title="Repetições em Reserva: pare com 2 reps antes de falhar">RIR 2</span>
-              <span class="badge badge-rest" onclick="startTimer(120)">⏱️ 2 min descanso</span>
+              <span class="badge badge-hierarchy">1º Plano Frontal</span>
+              <span class="badge badge-sets">3 Séries</span>
+              <span class="badge badge-reps">15 a 20 Reps</span>
+              <span class="badge badge-rir" title="Chegar próximo à falha metabólica">RIR 0-1</span>
+              <span class="badge badge-rest" onclick="startTimer(60)">⏱️ 60s descanso</span>
             </div>
           </div>
           <div class="cue-box">
-            💡 <strong>Execução:</strong> Desça até que a linha do quadril ultrapasse a linha superior dos joelhos. Pés totalmente apoiados; empurre o chão com os calcanhares.
+            💡 <strong>1º Plano Frontal:</strong> Descole o quadril levemente e incline o tronco à frente. Abra com força máxima e controle o retorno sem bater os pesos. Pré-ativa os glúteos médio e mínimo, estabilizando a pelve para os movimentos seguintes.
           </div>
-          <div class="sets-tracker" data-sets="4">
-            <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
+          <div class="sets-tracker" data-sets="3">
+            <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
           </div>
         </div>
 
-        <!-- Ex 2 -->
+        <!-- Ex 2: Extensão de Quadril -->
         <div class="exercise-card" data-ex-id="a2">
           <div class="card-top">
             <div class="exercise-header">
               <div class="exercise-number">2</div>
               <div class="exercise-title-group">
                 <h3>Elevação Pélvica com Barra <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Hip Thrust)</span></h3>
-                <span class="exercise-muscle-tag">Glúteo Máximo (Encurtamento Total)</span>
+                <span class="exercise-muscle-tag">Glúteo Máximo (Pico de Encurtamento)</span>
               </div>
             </div>
             <div class="badges-row">
+              <span class="badge badge-hierarchy">2º Extensão de Quadril</span>
               <span class="badge badge-sets">4 Séries</span>
-              <span class="badge badge-reps">10 a 12 Reps</span>
+              <span class="badge badge-reps">8 a 10 Reps</span>
               <span class="badge badge-rir" title="Pare com 1 a 2 reps antes da falha">RIR 1-2</span>
               <span class="badge badge-rest" onclick="startTimer(120)">⏱️ 2 min descanso</span>
             </div>
           </div>
           <div class="cue-box">
-            💡 <strong>Execução:</strong> Pause de 1 a 2 segundos no topo contraindo o glúteo ao máximo. Mantenha o queixo apontado para o peito e costelas abaixadas.
+            💡 <strong>2º Extensão de Quadril:</strong> Com o glúteo já pré-ativado pelo plano frontal, pause de 1 a 2 segundos no topo esmagando o glúteo ao máximo. Queixo colado no peito e costelas abaixadas para isolar a extensão pélvica sem sobrecarregar a lombar.
           </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
           </div>
         </div>
 
-        <!-- Ex 3 -->
+        <!-- Ex 3: Isometria Unilateral -->
         <div class="exercise-card" data-ex-id="a3">
           <div class="card-top">
             <div class="exercise-header">
               <div class="exercise-number">3</div>
               <div class="exercise-title-group">
-                <h3>Subida no Banco com Halteres <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Step-Up)</span></h3>
-                <span class="exercise-muscle-tag">Glúteo Máximo Unilateral (>60% MVIC)</span>
+                <h3>Subida no Banco com Halteres <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Step-Up com Isometria)</span></h3>
+                <span class="exercise-muscle-tag">Glúteo Máximo Unilateral & Estabilizadores</span>
               </div>
             </div>
             <div class="badges-row">
+              <span class="badge badge-hierarchy">3º Isometria Unilateral</span>
               <span class="badge badge-sets">3 Séries</span>
               <span class="badge badge-reps">10 a 12 cada perna</span>
               <span class="badge badge-rir">RIR 2</span>
@@ -697,18 +908,44 @@
             </div>
           </div>
           <div class="cue-box">
-            💡 <strong>Execução:</strong> Incline o tronco ligeiramente à frente. Não dê impulso com o pé de trás; faça a força exclusivamente com a perna de cima do banco.
+            💡 <strong>3º Isometria Unilateral:</strong> Incline o tronco 20° à frente e suba usando apenas a força do glúteo da perna de cima (não empurre com o pé de baixo). <strong>Sustente 2 segundos de contração isométrica no topo</strong> em cada repetição antes de descer controladamente.
           </div>
           <div class="sets-tracker" data-sets="3">
             <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
           </div>
         </div>
 
-        <!-- Ex 4 -->
+        <!-- Ex 4: Movimento Prolongado -->
         <div class="exercise-card" data-ex-id="a4">
           <div class="card-top">
             <div class="exercise-header">
               <div class="exercise-number">4</div>
+              <div class="exercise-title-group">
+                <h3>Agachamento Livre com Barra <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Back Squat Profundo)</span></h3>
+                <span class="exercise-muscle-tag">Glúteo Máximo, Quadríceps & Adutores</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-hierarchy">4º Movimento Prolongado</span>
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">8 a 10 Reps</span>
+              <span class="badge badge-rir" title="Repetições em Reserva: pare com 2 reps antes de falhar">RIR 2</span>
+              <span class="badge badge-rest" onclick="startTimer(120)">⏱️ 2 min descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>4º Movimento Prolongado:</strong> Com os glúteos em alerta máximo pelas 3 etapas anteriores, realize a descida com <strong>cadência excêntrica prolongada de 3 segundos</strong> e amplitude profunda (quadril passando a linha dos joelhos), gerando máxima hipertrofia mediada por alongamento.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
+          </div>
+        </div>
+
+        <!-- Ex 5: Isolador Quadríceps -->
+        <div class="exercise-card" data-ex-id="a5">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">5</div>
               <div class="exercise-title-group">
                 <h3>Cadeira Extensora</h3>
                 <span class="exercise-muscle-tag">Quadríceps & Reto Femoral</span>
@@ -729,11 +966,11 @@
           </div>
         </div>
 
-        <!-- Ex 5 -->
-        <div class="exercise-card" data-ex-id="a5">
+        <!-- Ex 6: Panturrilha -->
+        <div class="exercise-card" data-ex-id="a6">
           <div class="card-top">
             <div class="exercise-header">
-              <div class="exercise-number">5</div>
+              <div class="exercise-number">6</div>
               <div class="exercise-title-group">
                 <h3>Panturrilha em Pé <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Smith ou Máquina)</span></h3>
                 <span class="exercise-muscle-tag">Gastrocnêmio & Sóleo</span>
@@ -912,9 +1149,13 @@
       <div class="section-banner">
         <div class="banner-info">
           <h2>🍑 TREINO C — Glúteo Máximo & Isquiotibiais</h2>
-          <p>Foco na cadeia posterior em alongamento mecânico e 2ª sessão semanal de elevação pélvica.</p>
+          <p>Ordem do Truque da Contração: 1º Plano Frontal → 2º Extensão → 3º Isometria Unilateral → 4º Movimento Prolongado.</p>
         </div>
         <div class="banner-stats">
+          <div class="stat-pill" style="border-color: rgba(236, 72, 153, 0.4);">
+            <div class="stat-value" style="color: #f472b6;">🔥 3</div>
+            <div class="stat-label">Ativação Pré</div>
+          </div>
           <div class="stat-pill">
             <div class="stat-value">5</div>
             <div class="stat-label">Exercícios</div>
@@ -930,33 +1171,127 @@
         </div>
       </div>
 
+      <!-- SEQUÊNCIA DE ATIVAÇÃO DE GLÚTEO (PRÉ-TREINO) -->
+      <div class="activation-block">
+        <div class="activation-header">
+          <div class="activation-title-group">
+            <span class="activation-badge-tag">🔥 Aquecimento Específico Obrigatório</span>
+            <h3 class="activation-title">Sequência de Ativação de Glúteo</h3>
+            <p class="activation-subtitle">Faça 1 a 2 voltas sem descanso prolongado antes de iniciar Stiff, Elevação Pélvica ou Búlgaro. Melhora o engajamento neural e reduz sobrecarga no joelho e lombar.</p>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-sets">1 a 2 Voltas</span>
+            <span class="badge badge-rir" style="background: rgba(139, 92, 246, 0.15); color: #c084fc; border-color: rgba(139, 92, 246, 0.3);">Sem Falha Central</span>
+            <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s descanso</span>
+          </div>
+        </div>
+
+        <div class="activation-cards-grid">
+          <!-- Ativação 1: Ostra -->
+          <div class="activation-item-card" data-ex-id="c_act1">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="activation-badge-step">🔥1</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Ostra <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Abdução Deitada)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem;">Glúteo Médio & Mínimo</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-reps">15 a 20 Movimentos</span>
+                <span class="badge badge-rir" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border-color: rgba(236, 72, 153, 0.3);">Segura 2s e Fecha</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 12px; font-size: 0.8rem;">
+                💡 <strong>Execução:</strong> Deitada de lado, joelhos flexionados a 90° e calcanhares juntos. Faça a abdução abrindo o joelho de cima; <strong>segura 2 segundos na contração máxima e fecha</strong> controlando o movimento sem rodar o quadril para trás (15 a 20 cada lado).
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="2">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Ativação 2: Extensão de Quadril -->
+          <div class="activation-item-card" data-ex-id="c_act2">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="activation-badge-step">🔥2</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Extensão de Quadril <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Apoio na Parede)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem;">Glúteo Máximo (Pico de Contração)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-reps">15 a 20 Movimentos</span>
+                <span class="badge badge-rir" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border-color: rgba(236, 72, 153, 0.3);">2s de Contração</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 12px; font-size: 0.8rem;">
+                💡 <strong>Execução:</strong> Em pé com as mãos apoiadas na parede e tronco alinhado. Estenda a perna para trás mantendo o abdômen travado (sem hiperestender a lombar); <strong>segure 2s de contração forte no topo</strong> e retorne controlando (15 a 20 cada perna).
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="2">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Ativação 3: Passada Lateral -->
+          <div class="activation-item-card" data-ex-id="c_act3">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="activation-badge-step">🔥3</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 0.98rem; font-weight: 700;">Passada Lateral <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Lateral Band Walk)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.72rem;">Glúteo Médio & Estabilidade Pélvica</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-reps">15 a 20 Movimentos</span>
+                <span class="badge badge-rir" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border-color: rgba(236, 72, 153, 0.3);">Tensão Constante</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 12px; font-size: 0.8rem;">
+                💡 <strong>Execução:</strong> Base de meio-agachamento, peito ereto e joelhos na linha das pontas dos pés. Dê passadas laterais controladas. <strong>Nunca junte os pés totalmente</strong> para manter a musculatura sob tensão contínua durante todos os 15 a 20 passos.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="2">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="exercise-list">
-        <!-- Ex 1 -->
+        <!-- Ex 1: Plano Frontal (Abdução de Quadril) -->
         <div class="exercise-card" data-ex-id="c1">
           <div class="card-top">
             <div class="exercise-header">
               <div class="exercise-number">1</div>
               <div class="exercise-title-group">
-                <h3>Levantamento Terra Romeno / Stiff <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(RDL)</span></h3>
-                <span class="exercise-muscle-tag">Isquiotibiais & Glúteos em Alongamento</span>
+                <h3>Cadeira Abdutora <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Tronco Inclinado à Frente)</span></h3>
+                <span class="exercise-muscle-tag">Glúteo Médio & Fibras Superiores</span>
               </div>
             </div>
             <div class="badges-row">
-              <span class="badge badge-sets">4 Séries</span>
-              <span class="badge badge-reps">8 a 10 Reps</span>
-              <span class="badge badge-rir">RIR 2</span>
-              <span class="badge badge-rest" onclick="startTimer(120)">⏱️ 2 min descanso</span>
+              <span class="badge badge-hierarchy">1º Plano Frontal</span>
+              <span class="badge badge-sets">3 Séries</span>
+              <span class="badge badge-reps">15 a 20 Reps</span>
+              <span class="badge badge-rir">RIR 0-1</span>
+              <span class="badge badge-rest" onclick="startTimer(60)">⏱️ 60s descanso</span>
             </div>
           </div>
           <div class="cue-box">
-            💡 <strong>Execução:</strong> Joelhos levemente flexionados e fixos. Empurre o quadril para trás como se fosse encostar na parede atrás; sinta a parte de trás da coxa esticar.
+            💡 <strong>1º Plano Frontal:</strong> Descole as costas do encosto e incline o tronco para frente segurando na máquina. Abra com máxima amplitude e controle a volta. Isola as fibras superiores e o glúteo médio, preparando a bacia para a elevação pélvica pesada.
           </div>
-          <div class="sets-tracker" data-sets="4">
-            <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
+          <div class="sets-tracker" data-sets="3">
+            <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
           </div>
         </div>
 
-        <!-- Ex 2 -->
+        <!-- Ex 2: Extensão de Quadril -->
         <div class="exercise-card" data-ex-id="c2">
           <div class="card-top">
             <div class="exercise-header">
@@ -967,6 +1302,7 @@
               </div>
             </div>
             <div class="badges-row">
+              <span class="badge badge-hierarchy">2º Extensão de Quadril</span>
               <span class="badge badge-sets">4 Séries</span>
               <span class="badge badge-reps">8 a 10 Reps</span>
               <span class="badge badge-rir">RIR 1</span>
@@ -974,24 +1310,25 @@
             </div>
           </div>
           <div class="cue-box">
-            💡 <strong>Execução:</strong> Carga ligeiramente mais alta que no Treino A. Foque em extensão completa do quadril e trave 1s no topo.
+            💡 <strong>2º Extensão de Quadril:</strong> Carga mais pesada que no Treino A. Como o glúteo médio já foi acionado no plano frontal, foque em extensão pélvica pura, travando 1 a 2 segundos no ponto mais alto com abdômen firme.
           </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
           </div>
         </div>
 
-        <!-- Ex 3 -->
+        <!-- Ex 3: Isometria Unilateral -->
         <div class="exercise-card" data-ex-id="c3">
           <div class="card-top">
             <div class="exercise-header">
               <div class="exercise-number">3</div>
               <div class="exercise-title-group">
-                <h3>Agachamento Búlgaro <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Split Squat com Halteres)</span></h3>
+                <h3>Agachamento Búlgaro <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Split Squat com Isometria)</span></h3>
                 <span class="exercise-muscle-tag">Glúteo Máximo & Estabilizadores</span>
               </div>
             </div>
             <div class="badges-row">
+              <span class="badge badge-hierarchy">3º Isometria Unilateral</span>
               <span class="badge badge-sets">3 Séries</span>
               <span class="badge badge-reps">10 a 12 cada perna</span>
               <span class="badge badge-rir">RIR 1-2</span>
@@ -999,18 +1336,44 @@
             </div>
           </div>
           <div class="cue-box">
-            💡 <strong>Execução:</strong> Pé de trás apenas apoiado no banco. Projete o tronco cerca de 20° para a frente para direcionar a sobrecarga ao glúteo da perna da frente.
+            💡 <strong>3º Isometria Unilateral:</strong> Pé de trás apenas apoiado no banco. Incline o tronco 20° à frente para direcionar a sobrecarga ao glúteo da perna da frente. <strong>Segure 1 a 2 segundos de pausa isométrica no ponto mais fundo da descida</strong> antes de subir.
           </div>
           <div class="sets-tracker" data-sets="3">
             <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
           </div>
         </div>
 
-        <!-- Ex 4 -->
+        <!-- Ex 4: Movimento Prolongado -->
         <div class="exercise-card" data-ex-id="c4">
           <div class="card-top">
             <div class="exercise-header">
               <div class="exercise-number">4</div>
+              <div class="exercise-title-group">
+                <h3>Levantamento Terra Romeno / Stiff <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(RDL em Alongamento Prolongado)</span></h3>
+                <span class="exercise-muscle-tag">Isquiotibiais & Glúteos em Máximo Alongamento</span>
+              </div>
+            </div>
+            <div class="badges-row">
+              <span class="badge badge-hierarchy">4º Movimento Prolongado</span>
+              <span class="badge badge-sets">4 Séries</span>
+              <span class="badge badge-reps">8 a 10 Reps</span>
+              <span class="badge badge-rir">RIR 2</span>
+              <span class="badge badge-rest" onclick="startTimer(120)">⏱️ 2 min descanso</span>
+            </div>
+          </div>
+          <div class="cue-box">
+            💡 <strong>4º Movimento Prolongado:</strong> Joelhos semiflexionados e fixos. Empurre o quadril para trás com <strong>fase excêntrica prolongada de 3 a 4 segundos</strong> sentindo o glúteo e a parte posterior da coxa abrirem ao máximo sob tensão contínua.
+          </div>
+          <div class="sets-tracker" data-sets="4">
+            <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
+          </div>
+        </div>
+
+        <!-- Ex 5: Isolador Isquiotibiais -->
+        <div class="exercise-card" data-ex-id="c5">
+          <div class="card-top">
+            <div class="exercise-header">
+              <div class="exercise-number">5</div>
               <div class="exercise-title-group">
                 <h3>Cadeira Flexora</h3>
                 <span class="exercise-muscle-tag">Isquiotibiais (Posterior de Coxa)</span>
@@ -1028,31 +1391,6 @@
           </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
-          </div>
-        </div>
-
-        <!-- Ex 5 -->
-        <div class="exercise-card" data-ex-id="c5">
-          <div class="card-top">
-            <div class="exercise-header">
-              <div class="exercise-number">5</div>
-              <div class="exercise-title-group">
-                <h3>Cadeira Abdutora <span style="font-weight: 400; font-size: 0.85rem; color: #94a3b8;">(Tronco Inclinado à Frente)</span></h3>
-                <span class="exercise-muscle-tag">Glúteo Médio & Fibras Superiores</span>
-              </div>
-            </div>
-            <div class="badges-row">
-              <span class="badge badge-sets">3 Séries</span>
-              <span class="badge badge-reps">15 a 20 Reps</span>
-              <span class="badge badge-rir">RIR 0-1</span>
-              <span class="badge badge-rest" onclick="startTimer(60)">⏱️ 60s descanso</span>
-            </div>
-          </div>
-          <div class="cue-box">
-            💡 <strong>Execução:</strong> Descole as costas do encosto e incline o tronco para frente segurando na máquina. Abra com amplitude e controle a volta.
-          </div>
-          <div class="sets-tracker" data-sets="3">
-            <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
           </div>
         </div>
       </div>
@@ -1209,6 +1547,139 @@
       </div>
     </section>
 
+    <!-- CONTENT: ATIVAÇÃO DE GLÚTEO (SEÇÃO DEDICADA) -->
+    <section id="ativacao" class="tab-content" style="display: none;">
+      <div class="section-banner">
+        <div class="banner-info">
+          <h2>🔥 Protocolo de Ativação Neuromuscular de Glúteos</h2>
+          <p>Realize antes dos treinos de perna/glúteo (Treino A e Treino C) para potencializar o recrutamento e a hipertrofia.</p>
+        </div>
+        <div class="banner-stats">
+          <div class="stat-pill">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Exercícios</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-value">1 a 2</div>
+            <div class="stat-label">Voltas / Séries</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-value">~5 min</div>
+            <div class="stat-label">Duração</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="activation-block" style="margin-bottom: 24px;">
+        <div class="activation-header">
+          <div class="activation-title-group">
+            <span class="activation-badge-tag">📋 Guia Prático de Execução</span>
+            <h3 class="activation-title">Circuito de Ativação Tripla</h3>
+            <p class="activation-subtitle">Cadência controlada, foco no ardor muscular e sem pressa. Marque as séries concluídas abaixo:</p>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-sets">1 a 2 Voltas</span>
+            <span class="badge badge-rest" onclick="startTimer(30)">⏱️ 30s descanso</span>
+          </div>
+        </div>
+
+        <div class="activation-cards-grid">
+          <!-- Standalone Ativ 1 -->
+          <div class="activation-item-card" data-ex-id="tab_act1">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="activation-badge-step">🔥1</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 1rem; font-weight: 700;">Ostra <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Abdução Deitada)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.75rem;">Glúteo Médio & Rotadores</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-reps">15 a 20 Movimentos</span>
+                <span class="badge badge-rir" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border-color: rgba(236, 72, 153, 0.3);">Segura 2s e Fecha</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 12px; font-size: 0.82rem;">
+                💡 <strong>Execução:</strong> Deitada de lado com pernas flexionadas a 90° e calcanhares unidos. Abra o joelho superior o mais alto possível sem girar o tronco para trás. <strong>Segure 2s no ponto máximo de contração e feche devagar</strong>. Realize de 15 a 20 repetições de cada lado.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="2">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Standalone Ativ 2 -->
+          <div class="activation-item-card" data-ex-id="tab_act2">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="activation-badge-step">🔥2</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 1rem; font-weight: 700;">Extensão de Quadril <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Apoio na Parede)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.75rem;">Glúteo Máximo</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-reps">15 a 20 Movimentos</span>
+                <span class="badge badge-rir" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border-color: rgba(236, 72, 153, 0.3);">2s de Contração</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 12px; font-size: 0.82rem;">
+                💡 <strong>Execução:</strong> Em pé com ambas as mãos na parede e abdômen contraído para proteger a coluna lombar. Estenda a perna para trás contraindo ativamente o glúteo máximo. <strong>Mantenha 2s de contração no topo</strong> e desça com controle (15 a 20 movimentos por perna).
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="2">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+
+          <!-- Standalone Ativ 3 -->
+          <div class="activation-item-card" data-ex-id="tab_act3">
+            <div>
+              <div class="card-top" style="margin-bottom: 8px;">
+                <div class="exercise-header">
+                  <div class="activation-badge-step">🔥3</div>
+                  <div class="exercise-title-group">
+                    <h4 style="font-size: 1rem; font-weight: 700;">Passada Lateral <span style="font-weight: 400; font-size: 0.82rem; color: #94a3b8;">(Lateral Band Walk)</span></h4>
+                    <span class="exercise-muscle-tag" style="font-size: 0.75rem;">Glúteo Médio & Pelve</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badges-row" style="margin-bottom: 10px;">
+                <span class="badge badge-reps">15 a 20 Movimentos</span>
+                <span class="badge badge-rir" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border-color: rgba(236, 72, 153, 0.3);">Tensão Contínua</span>
+              </div>
+              <div class="cue-box" style="margin-bottom: 12px; font-size: 0.82rem;">
+                💡 <strong>Execução:</strong> Base semiativa com quadris para trás. Dê passos laterais com controle (com ou sem miniband acima dos joelhos). <strong>Mantenha os pés afastados na largura dos ombros mesmo no retorno</strong> para não perder a tensão mecânica em nenhum momento.
+              </div>
+            </div>
+            <div class="sets-tracker" data-sets="2">
+              <button class="btn-timer-trigger" onclick="startTimer(30)">⏱️ 30s</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Informações Biomecânicas Complementares -->
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>🧠 Por que Ativar Antes do Agachamento?</h4>
+          <p>Devido ao hábito de passar longas horas sentadas, o sistema nervoso diminui o disparo neural para o glúteo (amnésia glútea). Ativar o músculo com 15 a 20 movimentos antes das cargas pesadas "recalibra" a conexão cérebro-músculo, fazendo com que o glúteo trabalhe com intensidade total no Agachamento, Hip Thrust e Stiff.</p>
+        </div>
+
+        <div class="info-card">
+          <h4>🛡️ Proteção de Joelhos e Lombar</h4>
+          <p>O glúteo médio é o principal estabilizador lateral da pelve. Quando ativado, ele previne o <em>valgo dinâmico</em> (joelhos caindo para dentro) e estabiliza o quadril, eliminando sobrecargas nocivas na lombar e nos ligamentos do joelho.</p>
+        </div>
+
+        <div class="info-card">
+          <h4>⚡ Dica de Intensidade: Não Chegar à Falha</h4>
+          <p>O objetivo do aquecimento neuromuscular é <strong>acordar</strong> o músculo, e não fatigá-lo. Não use elásticos excessivamente pesados que te impeçam de completar as 15 a 20 reps com postura impecável.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTENT: PERIODIZAÇÃO -->
     <section id="periodizacao" class="tab-content" style="display: none;">
       <div class="section-banner">
@@ -1282,6 +1753,22 @@
           <h4>🥗 O Segredo da Definição Corporal</h4>
           <p>"Definição" não é exercício especial com muitas repetições leves: é ter <strong>massa muscular desenvolvida</strong> sob uma <strong>camada fina de gordura</strong>. A musculação constrói o tônus muscular e a alimentação (1,6 a 2,2 g/kg de proteína diária + leve controle calórico) revela as linhas do corpo.</p>
         </div>
+
+        <div class="info-card">
+          <h4>🔥 Potenciação Pós-Ativação de Glúteos (PAP)</h4>
+          <p>A sequência de ativação (Ostra, Extensão de Quadril com 2s de contração e Passada Lateral) melhora a taxa de disparo neural das fibras musculares tipo II. Estudos biomecânicos (Contreras et al.) mostram aumento significativo no recrutamento de glúteo em agachamentos e elevações pélvicas quando precedidos por ativação específica de baixa carga.</p>
+        </div>
+
+        <div class="info-card">
+          <h4>👑 O Truque da Contração (Hierarquia Biomecânica de Glúteos)</h4>
+          <p>Para maximizar o desenvolvimento do glúteo sem que os quadríceps ou lombares dominem o movimento, os treinos A e C seguem a sequência biomecânica:</p>
+          <ul style="margin-left: 18px; margin-top: 6px; font-size: 0.8rem; color: #cbd5e1; line-height: 1.55;">
+            <li><strong>1º Plano Frontal (Abdução):</strong> Cadeira abdutora para acordar glúteo médio/mínimo e fixar a pelve.</li>
+            <li><strong>2º Extensão de Quadril:</strong> Elevação Pélvica (Hip Thrust) com pico de contração máxima no encurtamento.</li>
+            <li><strong>3º Isometria Unilateral:</strong> Step-Up / Búlgaro com pausa isométrica de 1-2s no ponto mais desafiador.</li>
+            <li><strong>4º Movimento Prolongado:</strong> Agachamento Profundo / Stiff com fase excêntrica lenta (3s) em hipertrofia mediada por alongamento.</li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
@@ -1320,7 +1807,8 @@
 
     function initSetsTracker() {
       document.querySelectorAll('.sets-tracker').forEach(container => {
-        const card = container.closest('.exercise-card');
+        const card = container.closest('.exercise-card, .activation-item-card');
+        if (!card) return;
         const exId = card.getAttribute('data-ex-id');
         const count = parseInt(container.getAttribute('data-sets') || '3');
         
@@ -1346,7 +1834,11 @@
             updateCardCompletion(card);
           });
 
-          container.insertBefore(pill, triggerBtn);
+          if (triggerBtn) {
+            container.insertBefore(pill, triggerBtn);
+          } else {
+            container.appendChild(pill);
+          }
         }
         updateCardCompletion(card);
       });

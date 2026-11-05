@@ -20,12 +20,17 @@ Aplicação interativa de periodização e acompanhamento de treinos baseada em 
 
 ## 📋 Estrutura da Ficha
 
-### 🏋️‍♀️ Treino A — Glúteo Máximo & Quadríceps
-1. **Agachamento Livre com Barra** *(Back Squat)* — 4 séries × 6–8 reps (RIR 1-2)
-2. **Elevação Pélvica com Barra** *(Hip Thrust)* — 4 séries × 8–10 reps (Pausa de 2s no topo)
-3. **Subida no Banco com Halteres** *(Step-Up)* — 3 séries × 10–12 reps/lado
-4. **Cadeira Extensora** — 3 séries × 12–15 reps
-5. **Panturrilha em Pé** *(Smith ou Máquina)* — 4 séries × 12–15 reps
+### 🏋️‍♀️ Treino A — Glúteo Máximo & Quadríceps *(Ordem do Truque da Contração)*
+- **🔥 Ativação de Glúteo (Pré-Treino — 1 a 2 voltas):**
+  - **Ostra (Abdução deitada):** 15 a 20 movimentos (segura 2s no pico e fecha)
+  - **Extensão de Quadril (Apoio na parede):** 15 a 20 movimentos (2s de contração isométrica)
+  - **Passada Lateral (Band walk):** 15 a 20 movimentos (tensão contínua)
+1. **[1º Plano Frontal] Cadeira Abdutora** *(ou Abdução na Polia)* — 3 séries × 15–20 reps (RIR 0-1)
+2. **[2º Extensão de Quadril] Elevação Pélvica com Barra** *(Hip Thrust)* — 4 séries × 8–10 reps (Pausa de 1-2s no topo)
+3. **[3º Isometria Unilateral] Subida no Banco com Halteres** *(Step-Up)* — 3 séries × 10–12 reps/lado (Pausa isométrica de 2s no topo)
+4. **[4º Movimento Prolongado] Agachamento Livre com Barra** *(Back Squat Profundo)* — 4 séries × 8–10 reps (Cadência excêntrica lenta de 3s)
+5. **Cadeira Extensora** — 3 séries × 12–15 reps
+6. **Panturrilha em Pé** *(Smith ou Máquina)* — 4 séries × 12–15 reps
 
 ### 💪 Treino B — Superiores, Dorsais & Ombros
 1. **Puxada Frontal na Polia** *(Lat Pulldown)* — 4 séries × 8–10 reps
@@ -34,12 +39,16 @@ Aplicação interativa de periodização e acompanhamento de treinos baseada em 
 4. **Elevação Lateral com Halteres** — 4 séries × 12–15 reps
 5. **Tríceps na Polia com Corda** — 3 séries × 12–15 reps
 
-### 🍑 Treino C — Glúteo Máximo & Isquiotibiais
-1. **Levantamento Terra Romeno / Stiff** *(RDL)* — 4 séries × 8–10 reps
-2. **Elevação Pélvica com Barra** *(Hip Thrust)* — 4 séries × 8–10 reps
-3. **Agachamento Búlgaro** *(Bulgarian Split Squat)* — 3 séries × 8–10 reps/lado
-4. **Cadeira Flexora** — 3 séries × 10–12 reps
-5. **Cadeira Abdutora** *(Tronco Inclinado à Frente)* — 3 séries × 15–20 reps
+### 🍑 Treino C — Glúteo Máximo & Isquiotibiais *(Ordem do Truque da Contração)*
+- **🔥 Ativação de Glúteo (Pré-Treino — 1 a 2 voltas):**
+  - **Ostra (Abdução deitada):** 15 a 20 movimentos (segura 2s no pico e fecha)
+  - **Extensão de Quadril (Apoio na parede):** 15 a 20 movimentos (2s de contração isométrica)
+  - **Passada Lateral (Band walk):** 15 a 20 movimentos (tensão contínua)
+1. **[1º Plano Frontal] Cadeira Abdutora** *(Tronco Inclinado à Frente)* — 3 séries × 15–20 reps
+2. **[2º Extensão de Quadril] Elevação Pélvica com Barra** *(Hip Thrust - Carga Alta)* — 4 séries × 8–10 reps (Trava de 1-2s no topo)
+3. **[3º Isometria Unilateral] Agachamento Búlgaro** *(Bulgarian Split Squat)* — 3 séries × 10–12 reps/lado (Pausa isométrica de 1-2s no ponto fundo)
+4. **[4º Movimento Prolongado] Levantamento Terra Romeno / Stiff** *(RDL)* — 4 séries × 8–10 reps (Descida excêntrica prolongada de 3-4s)
+5. **Cadeira Flexora** — 4 séries × 10–12 reps
 
 ### ✨ Treino D — Superiores & Estabilidade de Core
 1. **Remada Unilateral com Halter** *(Serrote)* — 3 séries × 10–12 reps/lado
