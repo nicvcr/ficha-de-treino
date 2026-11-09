@@ -729,12 +729,173 @@
       background: #334155;
     }
 
+    /* Home Workout Alternative Box */
+    .home-version-box {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(217, 119, 6, 0.04) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.32);
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .home-version-box:hover {
+      border-color: rgba(245, 158, 11, 0.55);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(217, 119, 6, 0.07) 100%);
+    }
+
+    .home-version-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .home-badge-tag {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .home-alt-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fef08a;
+    }
+
+    .home-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .home-meta-pill {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      color: #fde68a;
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .home-cue-text {
+      font-size: 0.82rem;
+      color: #e2e8f0;
+      line-height: 1.45;
+    }
+
+    .home-cue-text strong {
+      color: #fbbf24;
+    }
+
+    /* Location Toggle in Header & Section */
+    .location-toggle-group {
+      display: inline-flex;
+      background: #0f172a;
+      padding: 3px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+      gap: 2px;
+    }
+
+    .btn-location-toggle {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 11px;
+      border-radius: 7px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-location-toggle:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-location-toggle.active {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #0f172a;
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-location-toggle.active[data-mode="gym"] {
+      background: linear-gradient(135deg, var(--primary) 0%, #be185d 100%);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(236, 72, 153, 0.35);
+    }
+
+    .btn-location-toggle.active[data-mode="all"] {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.35);
+    }
+
+    /* Quick Filter Bar inside sections */
+    .view-filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 10px;
+      padding: 8px 14px;
+      margin-bottom: 18px;
+    }
+
+    .view-filter-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fde68a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Mode switching body classes */
+    body.mode-home .exercise-card .cue-box {
+      display: none;
+    }
+    body.mode-home .home-version-box {
+      border: 2px solid #f59e0b;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.16) 0%, rgba(217, 119, 6, 0.08) 100%);
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.18);
+    }
+    body.mode-gym .home-version-box {
+      display: none;
+    }
+
     /* Print Styles */
     @media print {
       body { background: #ffffff; color: #000000; padding: 0; }
-      header, .tab-bar, .floating-timer, .btn-timer-trigger { display: none !important; }
-      .exercise-card, .activation-block, .activation-item-card, .stretching-block, .stretching-item-card { page-break-inside: avoid; border: 1px solid #ccc; background: #fff; margin-bottom: 10px; color: #000; }
+      header, .tab-bar, .floating-timer, .btn-timer-trigger, .location-toggle-group, .view-filter-bar { display: none !important; }
+      .exercise-card, .activation-block, .activation-item-card, .stretching-block, .stretching-item-card, .home-version-box { page-break-inside: avoid; border: 1px solid #ccc; background: #fff; margin-bottom: 10px; color: #000; }
       .cue-box { background: #f5f5f5; border-left-color: #000; color: #333; }
+      .home-version-box { border-left: 3px solid #f59e0b; }
       .badge { border: 1px solid #aaa; color: #000 !important; background: transparent !important; }
     }
 
@@ -745,6 +906,8 @@
       .badges-row { margin-top: 8px; }
       .sets-tracker { justify-content: space-between; }
       .btn-timer-trigger { margin-left: 0; width: 100%; justify-content: center; margin-top: 6px; }
+      .location-toggle-group { width: 100%; justify-content: space-between; }
+      .btn-location-toggle { flex: 1; justify-content: center; padding: 6px 8px; font-size: 0.72rem; }
     }
   </style>
 </head>
@@ -761,6 +924,11 @@
         </div>
       </div>
       <div class="quick-actions">
+        <div class="location-toggle-group">
+          <button class="btn-location-toggle active" data-mode="all" onclick="setLocationMode('all')" title="Mostrar versão da academia e adaptação de casa juntas">👁️ Ambos</button>
+          <button class="btn-location-toggle" data-mode="gym" onclick="setLocationMode('gym')" title="Focar em aparelhos da academia">🏋️ Academia</button>
+          <button class="btn-location-toggle" data-mode="home" onclick="setLocationMode('home')" title="Focar em adaptações para fazer em casa">🏠 Em Casa</button>
+        </div>
         <button class="btn-action" id="btnResetAll" title="Desmarcar todas as séries da semana">🔄 Limpar Séries</button>
         <button class="btn-action" onclick="window.print()">🖨️ Imprimir</button>
       </div>
@@ -841,6 +1009,22 @@
             <div class="stat-value" style="color: #38bdf8;">🧘 4</div>
             <div class="stat-label">Alongamentos</div>
           </div>
+          <div class="stat-pill" style="border-color: rgba(245, 158, 11, 0.4);">
+            <div class="stat-value" style="color: #fbbf24;">🏠 100%</div>
+            <div class="stat-label">Adaptável Casa</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BARRA DE SELEÇÃO: ACADEMIA vs EM CASA -->
+      <div class="view-filter-bar">
+        <div class="view-filter-label">
+          <span>🏠 Modo de Treino:</span>
+        </div>
+        <div class="location-toggle-group">
+          <button class="btn-location-toggle active" data-mode="all" onclick="setLocationMode('all')">👁️ Ambos</button>
+          <button class="btn-location-toggle" data-mode="gym" onclick="setLocationMode('gym')">🏋️ Academia</button>
+          <button class="btn-location-toggle" data-mode="home" onclick="setLocationMode('home')">🏠 Em Casa</button>
         </div>
       </div>
 
@@ -959,6 +1143,20 @@
           <div class="cue-box">
             💡 <strong>1º Plano Frontal:</strong> Descole o quadril levemente e incline o tronco à frente. Abra com força máxima e controle o retorno sem bater os pesos. Pré-ativa os glúteos médio e mínimo, estabilizando a pelve para os movimentos seguintes.
           </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Abdução Sentada com Mini Band no Sofá (ou Deitada)</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🛋️ Sofá ou Cadeira</span>
+              <span class="home-meta-pill">🎗️ Mini Band ou Caneleira</span>
+              <span class="home-meta-pill">🔄 3× 15–20 reps (Segura 2s)</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Sente na borda do sofá com o tronco inclinado 30° à frente e o mini band logo acima dos joelhos. Abra afastando os joelhos com força até a amplitude máxima, segure 2 segundos no pico de contração e retorne devagar (3× 15 a 20 reps).
+            </div>
+          </div>
           <div class="sets-tracker" data-sets="3">
             <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
           </div>
@@ -984,6 +1182,20 @@
           </div>
           <div class="cue-box">
             💡 <strong>2º Extensão de Quadril:</strong> Com o glúteo já pré-ativado pelo plano frontal, pause de 1 a 2 segundos no topo esmagando o glúteo ao máximo. Queixo colado no peito e costelas abaixadas para isolar a extensão pélvica sem sobrecarregar a lombar.
+          </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Hip Thrust com Costas no Sofá / Cama (com Carga ou Unilateral)</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🛋️ Sofá ou Cama Firme</span>
+              <span class="home-meta-pill">🎒 Mochila c/ Livros, Galão 5L ou Halter</span>
+              <span class="home-meta-pill">🔄 4× 10–12 reps (Trava 2s no topo)</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Apoie as escápulas na beirada do sofá e posicione os pés a 90°. Coloque a mochila pesada ou galão sobre o quadril (use uma almofada por baixo). Eleve o quadril alinhando ao tronco e trave o glúteo no topo por 2 segundos. Se a carga for leve, faça <strong>unilateral</strong> (uma perna no ar)!
+            </div>
           </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
@@ -1011,6 +1223,20 @@
           <div class="cue-box">
             💡 <strong>3º Isometria Unilateral:</strong> Incline o tronco 20° à frente e suba usando apenas a força do glúteo da perna de cima (não empurre com o pé de baixo). <strong>Sustente 2 segundos de contração isométrica no topo</strong> em cada repetição antes de descer controladamente.
           </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Step-Up na Cadeira Firme, Banco ou Degrau Alto</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🪑 Cadeira Estável ou Degrau</span>
+              <span class="home-meta-pill">🎒 2 Halteres, Garrafas 2L ou Mochila</span>
+              <span class="home-meta-pill">🔄 3× 10–12 reps cada perna</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Pise com o pé inteiro no centro de uma cadeira resistente (encoste-a na parede para segurança). Suba empurrando exclusivamente pelo calcanhar da perna de cima, sem impulsionar com o pé do chão. Pause 2 segundos de isometria no topo e desça em 3 segundos.
+            </div>
+          </div>
           <div class="sets-tracker" data-sets="3">
             <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
           </div>
@@ -1037,6 +1263,20 @@
           <div class="cue-box">
             💡 <strong>4º Movimento Prolongado:</strong> Com os glúteos em alerta máximo pelas 3 etapas anteriores, realize a descida com <strong>cadência excêntrica prolongada de 3 segundos</strong> e amplitude profunda (quadril passando a linha dos joelhos), gerando máxima hipertrofia mediada por alongamento.
           </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Agachamento Goblet com Pausa de 3s (Halter, Galão ou Mochila)</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🧴 Galão 5L, Halter Pesado ou Mochila</span>
+              <span class="home-meta-pill">⏱️ Cadência Excêntrica 3s + Pausa 2s</span>
+              <span class="home-meta-pill">🔄 4× 10–12 reps</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Abrace o peso firme junto ao peito. Pés na largura dos ombros e pontas apontando levemente para fora. Desça profundo mantendo a coluna alinhada, <strong>segure 2 a 3 segundos na pausa profunda</strong> (tensão mecânica prolongada) e suba sem estalar os joelhos.
+            </div>
+          </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
           </div>
@@ -1062,6 +1302,20 @@
           <div class="cue-box">
             💡 <strong>Execução:</strong> Segure 1 segundo no topo da extensão e controle a descida do peso em 3 segundos sem bater as placas.
           </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Extensão de Quadríceps Ajoelhada (Reverse Nordic Curl)</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🧘 Colchonete ou Almofada</span>
+              <span class="home-meta-pill">🧱 Apoio Leve na Parede (se necessário)</span>
+              <span class="home-meta-pill">🔄 3× 10–12 reps lentas</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Fique de joelhos sobre uma almofada, mantendo quadril e tronco alinhados em linha reta. Incline o tronco reto para trás flexionando os joelhos até sentir queimar intensamente a frente das coxas (quadríceps). Retorne puxando pela força da coxa sem dobrar o quadril.
+            </div>
+          </div>
           <div class="sets-tracker" data-sets="3">
             <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
           </div>
@@ -1086,6 +1340,20 @@
           </div>
           <div class="cue-box">
             💡 <strong>Execução:</strong> Desça o calcanhar ao limite máximo sentindo alongar a panturrilha; suba completamente e aperte no topo.
+          </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Panturrilha Unilateral no Degrau da Escada ou Livro Grosso</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🪜 Degrau da Escada ou Livro</span>
+              <span class="home-meta-pill">🧱 Mão na Parede p/ Equilíbrio</span>
+              <span class="home-meta-pill">🔄 4× 15 reps cada perna</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Apoie a ponta de um pé na beirada do degrau. Desça o calcanhar ao limite máximo sentindo alongar a panturrilha. Suba na ponta máxima do pé, segure 2 segundos no topo esmagando a panturrilha e desça controlando em 3 segundos.
+            </div>
           </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
@@ -1240,6 +1508,22 @@
             <div class="stat-value" style="color: #38bdf8;">🧘 4</div>
             <div class="stat-label">Alongamentos</div>
           </div>
+          <div class="stat-pill" style="border-color: rgba(245, 158, 11, 0.4);">
+            <div class="stat-value" style="color: #fbbf24;">🏠 100%</div>
+            <div class="stat-label">Adaptável Casa</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BARRA DE SELEÇÃO: ACADEMIA vs EM CASA -->
+      <div class="view-filter-bar">
+        <div class="view-filter-label">
+          <span>🏠 Modo de Treino:</span>
+        </div>
+        <div class="location-toggle-group">
+          <button class="btn-location-toggle active" data-mode="all" onclick="setLocationMode('all')">👁️ Ambos</button>
+          <button class="btn-location-toggle" data-mode="gym" onclick="setLocationMode('gym')">🏋️ Academia</button>
+          <button class="btn-location-toggle" data-mode="home" onclick="setLocationMode('home')">🏠 Em Casa</button>
         </div>
       </div>
 
@@ -1263,6 +1547,20 @@
           </div>
           <div class="cue-box">
             💡 <strong>Execução:</strong> Puxe a barra em direção à parte superior do peito. Mantenha o peito estufado e deprima as escápulas para baixo ao puxar.
+          </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Puxada com Elástico no Alto da Porta OU Remada sob a Mesa Firme</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🚪 Elástico no Batente OU Mesa Firme</span>
+              <span class="home-meta-pill">🔄 4× 10–12 reps</span>
+              <span class="home-meta-pill">✨ Grande Dorsal</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Com elástico: de joelhos, prenda o elástico no topo da porta e puxe os cotovelos para baixo e para trás colados ao tronco. Com a mesa: deite de costas sob a mesa firme de jantar, segure a borda com pegada aberta e puxe o peito até a mesa (excelente para abrir a linha das dorsais).
+            </div>
           </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
@@ -1289,6 +1587,20 @@
           <div class="cue-box">
             💡 <strong>Execução:</strong> Banco em inclinação suave (30°). Desça com os cotovelos a cerca de 45° em relação ao corpo, sem abrir demais os ombros.
           </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Flexão de Braço com Pés no Sofá (Decline Push-Up) ou Floor Press</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🛋️ Pés no Sofá ou Cadeira</span>
+              <span class="home-meta-pill">🎒 Halteres ou Galões no Chão</span>
+              <span class="home-meta-pill">🔄 3× 8–12 reps</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Pés na beirada do sofá e mãos no chão na largura dos ombros. A inclinação dos pés transfere o esforço para as fibras superiores do peitoral (exatamente como o banco a 30°). Se estiver pesado, faça no chão tradicional ou com joelhos apoiados.
+            </div>
+          </div>
           <div class="sets-tracker" data-sets="3">
             <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
           </div>
@@ -1313,6 +1625,20 @@
           </div>
           <div class="cue-box">
             💡 <strong>Execução:</strong> Coluna reta e tronco estável. Puxe a manopla na direção do umbigo, apertando as escápulas uma contra a outra atrás.
+          </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Remada Curvada com Halteres / Mochila Pesada (ou Elástico sob os Pés)</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🎒 Mochila c/ Livros, 2 Galões ou Elástico</span>
+              <span class="home-meta-pill">🔄 3× 10–12 reps</span>
+              <span class="home-meta-pill">✨ Espessura de Costas</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Incline o tronco a 45° mantendo a coluna alinhada e o abdômen travado. Puxe a mochila ou halteres em direção ao umbigo fechando as escápulas atrás. Pause 1 segundo na contração máxima e desça controlando em 3 segundos.
+            </div>
           </div>
           <div class="sets-tracker" data-sets="3">
             <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
@@ -1339,6 +1665,20 @@
           <div class="cue-box">
             💡 <strong>Execução:</strong> Levante os braços levemente à frente do corpo (no plano escapular, ~30°). Suba até a altura do ombro, sem usar impulso do corpo.
           </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Elevação Lateral com Garrafas de Água / Halteres Leves / Elástico</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🧴 2 Garrafas de 1,5L ou 2L</span>
+              <span class="home-meta-pill">⏱️ Cadência: 1s subida, 3s descida</span>
+              <span class="home-meta-pill">🔄 4× 12–15 reps</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Em pé, peito ereto e cotovelos levemente destravados. Eleve as garrafas ou elástico até a altura dos ombros apontando os cotovelos para cima. Segure 1 segundo no topo e resista à descida lentamente por 3 segundos para queimar sem precisar de pesos gigantescos.
+            </div>
+          </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
           </div>
@@ -1363,6 +1703,20 @@
           </div>
           <div class="cue-box">
             💡 <strong>Execução:</strong> Cotovelos colados ao lado do corpo. Estenda os braços completamente e afaste as pontas da corda para fora no final do movimento.
+          </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Tríceps Banco no Sofá / Cadeira Firme ou Francês com Halter</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🛋️ Sofá ou Cadeira Resistente</span>
+              <span class="home-meta-pill">🧴 1 Halter ou Garrafa de 2L</span>
+              <span class="home-meta-pill">🔄 3× 12–15 reps</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Sente na borda do sofá, apoie as palmas das mãos ao lado do quadril com os dedos para a frente. Deslize o quadril para fora do sofá e dobre os cotovelos até 90°. Empurre com a força dos tríceps até esticar os braços completamente.
+            </div>
           </div>
           <div class="sets-tracker" data-sets="3">
             <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
@@ -1521,6 +1875,22 @@
             <div class="stat-value" style="color: #38bdf8;">🧘 4</div>
             <div class="stat-label">Alongamentos</div>
           </div>
+          <div class="stat-pill" style="border-color: rgba(245, 158, 11, 0.4);">
+            <div class="stat-value" style="color: #fbbf24;">🏠 100%</div>
+            <div class="stat-label">Adaptável Casa</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BARRA DE SELEÇÃO: ACADEMIA vs EM CASA -->
+      <div class="view-filter-bar">
+        <div class="view-filter-label">
+          <span>🏠 Modo de Treino:</span>
+        </div>
+        <div class="location-toggle-group">
+          <button class="btn-location-toggle active" data-mode="all" onclick="setLocationMode('all')">👁️ Ambos</button>
+          <button class="btn-location-toggle" data-mode="gym" onclick="setLocationMode('gym')">🏋️ Academia</button>
+          <button class="btn-location-toggle" data-mode="home" onclick="setLocationMode('home')">🏠 Em Casa</button>
         </div>
       </div>
 
@@ -1639,6 +2009,20 @@
           <div class="cue-box">
             💡 <strong>1º Plano Frontal:</strong> Descole as costas do encosto e incline o tronco para frente segurando na máquina. Abra com máxima amplitude e controle a volta. Isola as fibras superiores e o glúteo médio, preparando a bacia para a elevação pélvica pesada.
           </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Abdução em 4 Apoios com Mini Band (Fire Hydrant) ou em Pé</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🧘 Colchonete ou Tapete</span>
+              <span class="home-meta-pill">🎗️ Mini Band acima dos Joelhos</span>
+              <span class="home-meta-pill">🔄 3× 15–20 reps cada lado</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Em posição de 4 apoios com o mini band nos joelhos. Mantenha o abdômen travado e a coluna estável. Eleve uma perna dobrada lateralmente a 90° (movimento de hidrante). Segure 2 segundos no topo de maior contração do glúteo médio e retorne controlando (15 a 20 reps cada lado).
+            </div>
+          </div>
           <div class="sets-tracker" data-sets="3">
             <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
           </div>
@@ -1664,6 +2048,20 @@
           </div>
           <div class="cue-box">
             💡 <strong>2º Extensão de Quadril:</strong> Carga mais pesada que no Treino A. Como o glúteo médio já foi acionado no plano frontal, foque em extensão pélvica pura, travando 1 a 2 segundos no ponto mais alto com abdômen firme.
+          </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Hip Thrust Unilateral no Sofá com Pausa de 2s (Single-Leg)</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🛋️ Sofá ou Cama Firme</span>
+              <span class="home-meta-pill">🎒 Peso Corporal ou Halter 5-10kg</span>
+              <span class="home-meta-pill">🔄 4× 10–12 reps cada perna</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Em casa, o estímulo unilateral dobra a intensidade sobre cada glúteo sem precisar de barras pesadas! Apoie as escápulas no sofá, estenda uma perna no ar e empurre o chão com o outro calcanhar. Trave 2 segundos no ponto mais alto com o glúteo rígido antes de descer.
+            </div>
           </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
@@ -1691,6 +2089,20 @@
           <div class="cue-box">
             💡 <strong>3º Isometria Unilateral:</strong> Pé de trás apenas apoiado no banco. Incline o tronco 20° à frente para direcionar a sobrecarga ao glúteo da perna da frente. <strong>Segure 1 a 2 segundos de pausa isométrica no ponto mais fundo da descida</strong> antes de subir.
           </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Búlgaro com Pé no Sofá / Cadeira e Halteres / Garrafas</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🛋️ Sofá ou Cadeira Estável</span>
+              <span class="home-meta-pill">🎒 2 Halteres, Garrafas 2L ou Mochila</span>
+              <span class="home-meta-pill">🔄 3× 10–12 reps cada perna</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Apoie o peito do pé de trás na beirada do sofá. Dê um passo largo à frente e incline o tronco ligeiramente a 15° para focar a tensão no glúteo da perna da frente. Desça fundo até o joelho quase tocar o chão, faça uma <strong>pausa isométrica de 2 segundos no fundo</strong> e suba empurrando pelo calcanhar.
+            </div>
+          </div>
           <div class="sets-tracker" data-sets="3">
             <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
           </div>
@@ -1717,6 +2129,20 @@
           <div class="cue-box">
             💡 <strong>4º Movimento Prolongado:</strong> Joelhos semiflexionados e fixos. Empurre o quadril para trás com <strong>fase excêntrica prolongada de 3 a 4 segundos</strong> sentindo o glúteo e a parte posterior da coxa abrirem ao máximo sob tensão contínua.
           </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Stiff com Halteres / Mochila com Livros ou Stiff Unilateral</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🎒 Mochila Pesada c/ Livros ou Galões</span>
+              <span class="home-meta-pill">⏱️ Descida Excêntrica em 4 Segundos</span>
+              <span class="home-meta-pill">🔄 4× 10–12 reps</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Segure os halteres ou a mochila pesada com pegada pronada. Joelhos levemente destravados. Empurre o quadril para trás como se fosse encostar na parede, descendo a carga colada às pernas em 4 segundos até sentir o posterior e o glúteo alongarem ao máximo. Suba contraindo os glúteos.
+            </div>
+          </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(120)">⏱️ Descansar 120s</button>
           </div>
@@ -1741,6 +2167,20 @@
           </div>
           <div class="cue-box">
             💡 <strong>Execução:</strong> Ajuste o encosto para manter o quadril bem apoiado em 90°. Puxe até o limite da flexão e não deixe o peso bater na volta.
+          </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Flexão de Joelhos Deslizante com Toalha (Hamstring Slide Curl)</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🧹 Piso Liso (Porcelanato/Taco) + Toalha</span>
+              <span class="home-meta-pill">🧘 Colchonete para as Costas</span>
+              <span class="home-meta-pill">🔄 4× 10–12 reps</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Deite de costas no tapete com os calcanhares sobre uma toalha ou meia no piso liso. Eleve o quadril em ponte glútea. Com o quadril alto, deslize os pés para frente até quase estender as pernas e puxe de volta flexionando os joelhos com força. O posterior de coxa trabalha com intensidade máxima!
+            </div>
           </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
@@ -1895,6 +2335,22 @@
             <div class="stat-value" style="color: #38bdf8;">🧘 4</div>
             <div class="stat-label">Alongamentos</div>
           </div>
+          <div class="stat-pill" style="border-color: rgba(245, 158, 11, 0.4);">
+            <div class="stat-value" style="color: #fbbf24;">🏠 100%</div>
+            <div class="stat-label">Adaptável Casa</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BARRA DE SELEÇÃO: ACADEMIA vs EM CASA -->
+      <div class="view-filter-bar">
+        <div class="view-filter-label">
+          <span>🏠 Modo de Treino:</span>
+        </div>
+        <div class="location-toggle-group">
+          <button class="btn-location-toggle active" data-mode="all" onclick="setLocationMode('all')">👁️ Ambos</button>
+          <button class="btn-location-toggle" data-mode="gym" onclick="setLocationMode('gym')">🏋️ Academia</button>
+          <button class="btn-location-toggle" data-mode="home" onclick="setLocationMode('home')">🏠 Em Casa</button>
         </div>
       </div>
 
@@ -1918,6 +2374,20 @@
           </div>
           <div class="cue-box">
             💡 <strong>Execução:</strong> Apoie um joelho e mão no banco. Puxe o halter fazendo um arco em direção ao quadril, não em direção ao ombro.
+          </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Serrote com Halter, Mochila Pesada ou Galão no Sofá</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🛋️ Sofá ou Cadeira para Apoio</span>
+              <span class="home-meta-pill">🎒 Mochila c/ Livros, Halter ou Galão 5L</span>
+              <span class="home-meta-pill">🔄 4× 10–12 reps cada braço</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Apoie um joelho e a mão da frente no sofá mantendo a coluna alinhada e o abdômen firme. Segure a mochila ou halter com a outra mão e puxe levando o cotovelo em direção ao quadril (sem girar o tronco). Esmague as costas no topo por 1s e desça com controle total.
+            </div>
           </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
@@ -1944,6 +2414,20 @@
           <div class="cue-box">
             💡 <strong>Execução:</strong> Sentada em banco 75°-80°. Suba os halteres controladamente sem deixá-los bater no topo; desça até a altura das orelhas.
           </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Desenvolvimento Sentada com Halteres / Garrafas de 2L ou Pike Push-Up</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🪑 Cadeira Firme (Coluna Reta)</span>
+              <span class="home-meta-pill">🧴 2 Halteres ou Garrafas Pet de 2L</span>
+              <span class="home-meta-pill">🔄 3× 10–12 reps</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Sente na cadeira com as costas retas e pés firmes. Segure as cargas na altura das orelhas com cotovelos a 90°. Empurre para cima sem encostar os pesos no topo e desça controlando até a linha do queixo/orelha.
+            </div>
+          </div>
           <div class="sets-tracker" data-sets="3">
             <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
           </div>
@@ -1968,6 +2452,20 @@
           </div>
           <div class="cue-box">
             💡 <strong>Execução:</strong> Pegada neutra fechada. Desça puxando o triângulo até o peito, mantendo o abdômen firme e sem balançar o tronco.
+          </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Remada Curvada com Pegada Fechada / Elástico na Maçaneta</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🎒 Mochila pelas Alças Centrais ou Elástico</span>
+              <span class="home-meta-pill">🔄 3× 10–12 reps</span>
+              <span class="home-meta-pill">✨ Dorsal Medial & Postura</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Incline o tronco para frente com a coluna travada reta. Puxe a mochila segurada pelas alças centrais ou o elástico em direção à boca do estômago, mantendo os cotovelos bem juntos e colados às costelas para ativar a musculatura romboide e os dorsais mediais.
+            </div>
           </div>
           <div class="sets-tracker" data-sets="3">
             <button class="btn-timer-trigger" onclick="startTimer(90)">⏱️ Descansar 90s</button>
@@ -1994,6 +2492,20 @@
           <div class="cue-box">
             💡 <strong>Execução:</strong> Posicione a polia na altura do joelho ou tornozelo. Puxe o cabo lateralmente mantendo tensão uniforme em todo o arco de movimento.
           </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Elevação Lateral com Elástico Pisado no Chão (ou Halter c/ Isometria)</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🎗️ Elástico Pisado no Chão</span>
+              <span class="home-meta-pill">🧴 Ou Halter / Garrafa de 1,5L</span>
+              <span class="home-meta-pill">🔄 4× 12–15 reps cada lado</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Pise em uma ponta do elástico no chão e segure a outra ponta com a mão contrária. Eleve lateralmente o braço até a altura do ombro. A tensão elástica simula perfeitamente a polia da academia, mantendo carga constante em todo o arco!
+            </div>
+          </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
           </div>
@@ -2018,6 +2530,20 @@
           </div>
           <div class="cue-box">
             💡 <strong>Execução:</strong> Puxe o umbigo para dentro em direção à coluna. Fortalece a cinta abdominal sem causar hipertrofia oblíqua que alarga a cintura.
+          </div>
+          <div class="home-version-box">
+            <div class="home-version-header">
+              <span class="home-badge-tag">🏠 Versão em Casa</span>
+              <span class="home-alt-title">Prancha Frontal no Chão + Pallof Press com Elástico na Maçaneta</span>
+            </div>
+            <div class="home-meta-row">
+              <span class="home-meta-pill">🚪 Elástico na Maçaneta da Porta</span>
+              <span class="home-meta-pill">🧘 Colchonete ou Tapete</span>
+              <span class="home-meta-pill">⏱️ 4 Séries de 45s a 60s</span>
+            </div>
+            <div class="home-cue-text">
+              💡 <strong>Como fazer em casa:</strong> Para a Prancha: antebraços no chão, corpo como uma prancha reta e umbigo sugado para dentro (fortalece o transverso sem alargar a cintura). Para o Pallof: prenda o elástico na maçaneta de uma porta fechada, segure no peito em pé e estenda os braços à frente, resistindo à força de rotação da porta por 30s cada lado.
+            </div>
           </div>
           <div class="sets-tracker" data-sets="4">
             <button class="btn-timer-trigger" onclick="startTimer(60)">⏱️ Descansar 60s</button>
@@ -2517,8 +3043,33 @@
       else switchTab('treino-a'); // default
     }
 
+    // Location Mode (All vs Gym vs Home)
+    const LOCATION_STORAGE_KEY = 'ficha_treino_location_mode';
+    function setLocationMode(mode) {
+      document.body.classList.remove('mode-all', 'mode-gym', 'mode-home');
+      document.body.classList.add(`mode-${mode}`);
+
+      document.querySelectorAll('.btn-location-toggle').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
+      });
+
+      try {
+        localStorage.setItem(LOCATION_STORAGE_KEY, mode);
+      } catch (e) {}
+    }
+
+    function initLocationMode() {
+      try {
+        const savedMode = localStorage.getItem(LOCATION_STORAGE_KEY) || 'all';
+        setLocationMode(savedMode);
+      } catch (e) {
+        setLocationMode('all');
+      }
+    }
+
     // Init
     initSetsTracker();
+    initLocationMode();
     autoSelectTodayTab();
   </script>
 </body>

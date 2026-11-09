@@ -11,9 +11,11 @@ Aplicação interativa de periodização e acompanhamento de treinos baseada em 
 
 ## 📱 Visão Geral da Plataforma
 
-- **Interface Responsiva & Mobile-First:** Desenvolvida com design moderno em Dark Mode, gradientes e tipografia refinada para uso direto na academia pelo celular.
+- **Interface Responsiva & Mobile-First:** Desenvolvida com design moderno em Dark Mode, gradientes e tipografia refinada para uso direto na academia ou em casa pelo celular.
 - **Divisão Inteligente A-B-C-D:** Volume e descanso otimizados para estímulo máximo de membros inferiores e superiores equilibrados.
-- **Checklist Interativo & Temporizador:** Acompanhamento de séries, cargas, RPE (Esforço Percebido) e descanso.
+- **🏠 Versões 100% Adaptadas para Fazer em Casa:** Todos os exercícios contam com alternativas caseiras utilizando sofá, cadeira, mochila com livros, galões de água, mini band e toalha deslizante.
+- **🔀 Seletor de Ambiente (Academia / Em Casa / Ambos):** Alterne o modo de visualização com um clique para focar nos aparelhos ou nas adaptações domésticas.
+- **Checklist Interativo & Temporizador:** Acompanhamento de séries, cargas, RPE (Esforço Percebido) e descanso com salvamento automático.
 - **Periodização Linear de 12 Semanas:** Bloco 1 (Adaptação & Acúmulo), Bloco 2 (Intensificação Metabólica) e Bloco 3 (Pico de Força & Tensão Mecânica).
 
 ---
